@@ -1,0 +1,19 @@
+{
+    "name": "alomej/simple_framework_php",
+    "description": "Is a simple framework structure",
+    "type": "project",
+    "authors": [
+        {
+            "name": "alexannotations"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Alomej\\SimpleFrameworkPhp\\": "app/"
+        },
+        "files": [
+            "app/helpers.php"
+        ]
+    },
+    "require": {}
+}
