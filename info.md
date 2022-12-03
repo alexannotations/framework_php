@@ -15,4 +15,11 @@ __Controllers__ Manejo de solicitudes
 - Ejecutamos ```composer dump``` para registrar los cambios, y crear la carpeta _vendor_. NO se creo _composer.lock_ al no requerir paquetes adicionales
 - Creamos las carpetas _app\Http_, _app\Http\Controllers_, _views_, _public_ y los archivos _Request.php_, _Response.php_, _helpers.php_.
 
-- 
+- Se crea el _front controller_ en index.php
+
+
+## Front Controller
+
+Es un patrón que ayuda a solucionar el problema de acceso único en la web. Se utiliza para proporcionar un mecanismo centralizado para manejar solicitudes, todas las solicitudes son procesadas por un solo controlador. El controlador puede realizar la autenticación / autorización / registro o solicitud de seguimiento, entonces la petición al controlador adecuado.
+
+En este caso, vamos a lograr que todo pase a través de index.php, así centralizaremos los accesos. Además, ya no necesitaremos tener un sistema lleno de include para incluir cabeceras o footers.

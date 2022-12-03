@@ -9,7 +9,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Alomej\\SimpleFrameworkPhp\\": "app/"
+            "AppFrame\\": "app/"
         },
         "files": [
             "app/helpers.php"
