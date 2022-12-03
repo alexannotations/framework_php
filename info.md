@@ -31,3 +31,23 @@ En este caso, vamos a lograr que todo pase a través de index.php, así centrali
 Hacemos referencia al procesamiento en cuanto a la peticion, configurando el archivo request para entender que requiere el usuario, procesarlo y entregar una respuesta.
 Se recomienda emplear como namespace el directorio de la clase. Los namespaces proporcionan una forma de agrupar clases, interfaces, funciones y constantes relacionadas.
 
+
+## .htaccess
+archivo de configuracion del servidor apache
+
+Genera index a todas las carpetas de archivo del proyecto, y no se visualizan los archivos
+```
+Options All -Indexes
+``` 
+
+Permite trabajar con url amigables, teniendo el RewriteEngine encendido
+```
+Options -MultiViews
+RewriteEngine On
+```
+
+condicion para que cualquier parametro que se coloque en la url siempre redireccione a index.php
+```
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ public/index.php [QSA,L]
+``` 
