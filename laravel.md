@@ -1,5 +1,7 @@
 # [Larvel](https://laravel.com/)
 
+La ruta invoca a un controlador, el controlador maneja todas las peticiones de solicitudes, y a partir de ahi entrega una respuesta, que puede ser una vista. 
+
 ## instalacion
 Para instalar la linea de comandos de laravel ``` composer global require laravel/installer ```
 Crear un nuevo proyecto con la ultima version lanzada ``` laravel new project_name ```
@@ -71,6 +73,18 @@ CLI de laravel para facilitar las tareas de crear la aplicación por medio de co
  - *channels.php* canales de trasnmision de eventos para proyectos que responden en tiempo real
 
 
+Para tener control sobre las rutas creadas, podemos ver que rutas estan registradas.
+``` php artisan route:list ```
+
+Filtrar rutas
+
+``` php artisan route:list --path=blog ```
+``` php artisan route:list --path=articles ```
+
+Esconder las rutas de paquetes de terceros (mostrar rutas propias)
+``` php artisan route:list --except-vendor ```
+
+
  ## views
  Las vistas se invocan desde las rutas
  ```php
@@ -79,15 +93,31 @@ CLI de laravel para facilitar las tareas de crear la aplicación por medio de co
     return view();
     });
  ```
-En la carpeta *resources/views/vista.blade.php* se guardan 
+En la carpeta */resources/views/vista.blade.php* se guardan templates
 
 
 ## model
-un modelo que representa a una tabla
+
+
+## migrations
+Se encuentran en */database/migrations/*
+Una *migration* es una estructura inicial de las tablas, que permite tener detallados todos los cambios de la tabla en una DB
+Con el comando ``` php artisan migrate ``` podemos ejecutar todas las migraciones para convertirlas en tablas, considere como accesa php a la DB. Se require una DB vacia y configurar el archivo *.env*. Y si se ha ejecutado antes llevara el control de versiones, es decir solo creara las nuevas tablas si es necesario.
+Para crear una migracion ``` php artisan make:migration create_nameoftable_table ``` observe que debe comenzar con *create_* y finalizar con *_table*, si se omite no se declara el schema. Dicho archivo se puede comenzar a editar.
+
+Las migrations, controllers y factories tienen su origen en los models, para crear todo a partir de un model
+``` php artisan make:model Post -mcf ```
+O bien lo anterior más los metodos CRUD en el controller
+``` php artisan make:model Post -mcf --resource ```
+```php
+   index()      create()      store()      show()      edit()      update()      destroy()
+```
+
 
 ## controller
 gestiona las solicitudes del usuario, se genera la logica necesaria para entregar la información
-
-
+Aisla la logica de las rutas, con un archivo que maneja las peticiones llamado controlador.
+Se guardan en */app/Http/Controllers/* 
+Se puede crear con ``` php artisan make:controller NamePageController ```
 
 
