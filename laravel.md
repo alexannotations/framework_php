@@ -97,10 +97,21 @@ En la carpeta */resources/views/vista.blade.php* se guardan templates
 
 
 ## model
+Es una clase que representa a una tabla que permite manejarla. Se crea el modelo */app/Models/* con su factory */database/factories/* y Controller */app/Http/Controllers/* ``` php artisan make:model nameofmodel -fc ```
+
+Permite eliminar todas las tablas, y volver a migrarlas ``` php artisan migrate:fresh ```
+Son nombrados en singular
+
+
+### factories
+Permite definir datos ficticios, creando una estructura principal para informacion de ejemplo.
+Se debe modificar el archivo _Seeder_ para crear los registros, para que se carge la informacion en la DB usamos ``` php artisan migrate:refresh --seed ```. Ejecutandose las migraciones, y los datos semilla, si se ejecuta por segunda vez elimina los datos y los vuelve a cargar
+
 
 
 ## migrations
 Se encuentran en */database/migrations/*
+Son nombradas en plural
 Una *migration* es una estructura inicial de las tablas, que permite tener detallados todos los cambios de la tabla en una DB
 Con el comando ``` php artisan migrate ``` podemos ejecutar todas las migraciones para convertirlas en tablas, considere como accesa php a la DB. Se require una DB vacia y configurar el archivo *.env*. Y si se ha ejecutado antes llevara el control de versiones, es decir solo creara las nuevas tablas si es necesario.
 Para crear una migracion ``` php artisan make:migration create_nameoftable_table ``` observe que debe comenzar con *create_* y finalizar con *_table*, si se omite no se declara el schema. Dicho archivo se puede comenzar a editar.
