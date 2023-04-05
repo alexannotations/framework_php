@@ -71,6 +71,10 @@ Permite administrar las bases de datos con ORM, al trabajar con los datos como s
 adicional, podemos utilizar el método paginate(), para realizar la paginación, solo no nos debemos de incluir en nuestras vistas la propiedad links() para que podamos visualizar los controles de paginación
 
 
+### Relationships
+Las relaciones se hacen en las tablas de la DB, y tambien debe especificarse de manera directa en el modelo de laravel
+
+
 ## routes
 */public/index.php* permite el acceso web, pero la configuración se hace en */routes/web.php* para activar lo necesario a nivel de respuesta web.
 
