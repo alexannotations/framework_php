@@ -60,6 +60,17 @@ CLI de laravel para facilitar las tareas de crear la aplicación por medio de co
 ``` php artisan ``` para visualizar la ayuda de algun comando ``` php artisan coman:do --help ```
 
 
+## Eloquent
+Permite administrar las bases de datos con ORM, al trabajar con los datos como si fuesen objetos
+```Post::get()``` Todos los registros de la DB
+```Post::first()``` El primer registro de la DB
+```Post::find(id)``` Busca un registro en la DB por medio de su id
+```Post::latest()``` Trae todos los registros de la DBs, y los ordena de forma descendente
+```Post::where('nombre_campo_DB_', 'id')->first();```
+
+adicional, podemos utilizar el método paginate(), para realizar la paginación, solo no nos debemos de incluir en nuestras vistas la propiedad links() para que podamos visualizar los controles de paginación
+
+
 ## routes
 */public/index.php* permite el acceso web, pero la configuración se hace en */routes/web.php* para activar lo necesario a nivel de respuesta web.
 
@@ -114,7 +125,7 @@ Se encuentran en */database/migrations/*
 Son nombradas en plural
 Una *migration* es una estructura inicial de las tablas, que permite tener detallados todos los cambios de la tabla en una DB
 Con el comando ``` php artisan migrate ``` podemos ejecutar todas las migraciones para convertirlas en tablas, considere como accesa php a la DB. Se require una DB vacia y configurar el archivo *.env*. Y si se ha ejecutado antes llevara el control de versiones, es decir solo creara las nuevas tablas si es necesario.
-Para crear una migracion ``` php artisan make:migration create_nameoftable_table ``` observe que debe comenzar con *create_* y finalizar con *_table*, si se omite no se declara el schema. Dicho archivo se puede comenzar a editar.
+Para crear una migracion ``` php artisan make:migration create_nameoftablewiths_table ``` observe que debe comenzar con *create_* y finalizar con *_table*, si se omite no se declara el schema. Dicho archivo se puede comenzar a editar.
 
 Las migrations, controllers y factories tienen su origen en los models, para crear todo a partir de un model
 ``` php artisan make:model Post -mcf ```
