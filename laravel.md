@@ -10,6 +10,10 @@ Crear un nuevo proyecto con una version en especifico ``` composer create-projec
 Despues de crear el proyecto, en la carpeta raiz del proyectose puede habilitar un servidor local ``` php artisan serve ``` . O en la carpea public se ejecuta el servidor ``` php -S 127.0.0.1:8000 ```
 
 
+## workflow
+El trabajo comienza en las rutas, para responder cada direccion con una publicacion de manera individual. Lo que nos lleva a desarrollar un controlador, cada metodo es basicamente la respuesta de una ruta, prepara y entrega la respuesta que cada ruta necesita, siendo los archivos que representan a las tablas. Las vistas son la respuesta de cada metodo de los controladores, estas extienden de la plantilla template y sirve para que sean legibles.
+
+
 ## Estructura de carpetas
 
 - __app__
