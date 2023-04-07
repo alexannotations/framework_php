@@ -104,6 +104,30 @@ Esconder las rutas de paquetes de terceros (mostrar rutas propias)
 ``` php artisan route:list --except-vendor ```
 
 
+### Proteger rutas en laravel
+
+Proteger rutas siginifica envolverlas dentro de una capa de seguridad, para que solo las puedan acceder usuarios logeados.
+Hay dos formas:
+- Desde el archivo de rutas:
+   ```
+   Route::get('/dashboard', function () {
+      return 'esto es un closure que hace algo';
+   })->middleware(['auth', 'verified']);
+   ```
+- Directamente desde el controlador (ejem: *PostController*):
+   ```
+      // Esto es para proteger la ruta
+      public function __construct()
+      {
+         $this->middleware(['auth', 'verified']);
+      }
+   ```
+En ambos casos podemos podemos agregar esta opcion si no queremos proteger todos los end points de la ruta (ejem: en el caso de los controladores de recursos (7 rutas) o los controladores para rutas de api (5 rutas))
+   ```
+   $this->middleware(['auth', 'verified'])->except(['index','show']);
+   ```
+
+
  ## views
  Las vistas se invocan desde las rutas
  ```php
