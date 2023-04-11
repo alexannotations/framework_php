@@ -128,8 +128,8 @@ En ambos casos podemos podemos agregar esta opcion si no queremos proteger todos
    ```
 
 
- ## views
- Las vistas se invocan desde las rutas
+## views
+Las vistas se invocan desde las rutas
  ```php
  Route::get('', function () {
     # consulta a DB 
@@ -158,6 +158,20 @@ Son nombradas en plural
 Una *migration* es una estructura inicial de las tablas, que permite tener detallados todos los cambios de la tabla en una DB
 Con el comando ``` php artisan migrate ``` podemos ejecutar todas las migraciones para convertirlas en tablas, considere como accesa php a la DB. Se require una DB vacia y configurar el archivo *.env*. Y si se ha ejecutado antes llevara el control de versiones, es decir solo creara las nuevas tablas si es necesario.
 Para crear una migracion ``` php artisan make:migration create_nameoftablewiths_table ``` observe que debe comenzar con *create_* y finalizar con *_table*, si se omite no se declara el schema. Dicho archivo se puede comenzar a editar.
+
+
+Eliminar las tablas y vistas de la base de datos
+```php artisan db:wipe --drop-views```
+
+Ejecuta las migraciones con sus datos semilla
+ ```php artisan migrate --seed```
+
+Elimina todas las tablas y vistas, re-ejecuta todas las migraciones con sus datos semilla
+  ```php artisan migrate:fresh --drop-views --seed```
+
+Restablece y re-ejecuta todas las migraciones con sus datos semilla
+  ```php artisan migrate:refresh --seed```
+
 
 Las migrations, controllers y factories tienen su origen en los models, para crear todo a partir de un model
 ``` php artisan make:model Post -mcf ```
