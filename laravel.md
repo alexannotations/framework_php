@@ -80,7 +80,13 @@ Las relaciones se hacen en las tablas de la DB, y tambien debe especificarse de 
 
 
 ## routes
+La ruta basica se define con un metodo segun la acción a realizar, que recibe como parametros un *uniform resource identifier* y un *closure*, la cual puede regresar un texto o un arreglo asociativo en forma de json, o una vista indicando el nombre del *template* en *views*.
 */public/index.php* permite el acceso web, pero la configuración se hace en */routes/web.php* para activar lo necesario a nivel de respuesta web.
+
+Enviar información hacia las vistas:
+- rutas -> vistas 
+- controladores -> vistas
+Desde las rutas puede ser un arreglo asociativo con el nombre de las variables que hacen referencia a las mismas variables dentro de blade. Se agrega un segundo parametro al ```return view('/templateview',['variable'=>'content']);``` aunque se recomienda utilizar controladores.
 
     Route:get    | Consultar
     Route:post   | Guardar
@@ -136,7 +142,13 @@ Las vistas se invocan desde las rutas
     return view();
     });
  ```
-En la carpeta */resources/views/vista.blade.php* se guardan templates
+En la carpeta */resources/views/* se guardan templates, los archivos se nombran siguiendo el convenio *vista.blade.php* para utilizar al motor de render *Blade*  que tiene como sintaxis de doble llave **{{ llamada a función }}** para variables u otras expresiones, y para estructuras de control un parametro de directivas que comienza con **@**.
+Un template engine como Blade, es una herramienta diseñada para mezclar plantillas y un modelo de datos para producir un documento, ademas los curly brakes filtran las variables *htmlspecialchars*.
+
+Recibe información de las rutas ``` {{ $variable }}```
+https://styde.net/blade-el-sistema-de-plantillas-de-laravel/
+
+
 
 
 ## model
@@ -183,9 +195,11 @@ O bien lo anterior más los metodos CRUD en el controller
 
 
 ## controller
-gestiona las solicitudes del usuario, se genera la logica necesaria para entregar la información
+*/app/Http/Controllers/*
+gestiona las solicitudes del usuario, se genera la logica necesaria para entregar la información, con *Route::get* se puede regresar las *views* indicando el controlador en la ruta, junto con el metodo. ``` Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']); ```
 Aisla la logica de las rutas, con un archivo que maneja las peticiones llamado controlador.
 Se guardan en */app/Http/Controllers/* 
 Se puede crear con ``` php artisan make:controller NamePageController ```
+Para crear con funciones ``` php artisan make:controller NamePageController --resource ```
 
 
