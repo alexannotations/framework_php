@@ -193,6 +193,9 @@ O bien lo anterior más los metodos CRUD en el controller
    index()      create()      store()      show()      edit()      update()      destroy()
 ```
 
+Crear un migracion nueva para alterar una tabla
+``` php artisan make:migration create_column_title_in_posts --table=posts ```
+
 
 ## controller
 */app/Http/Controllers/*
@@ -203,3 +206,7 @@ Se puede crear con ``` php artisan make:controller NamePageController ```
 Para crear con funciones ``` php artisan make:controller NamePageController --resource ```
 
 
+## request
+- El Request contiene la información que llega cuando se hace una petición al servidor. Se pueden traer parámetros *get*, datos de formulario en *post* o datos en la *URL*.
+- Laravel utiliza inyección de dependencias y cuando detecta que se recibe una variable request, sabe que debe inyectar el request que está accediendo a la acción.
+- Cuenta con un helper muy útil de Laravel que reemplaza el var_dump y el die; este helper es dd.
