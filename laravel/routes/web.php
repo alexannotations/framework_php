@@ -73,6 +73,7 @@ Route::get('textoblog', function () {
     return 'ruta texto blog';
 });
 
+# La ruta se define con parametros y se interpola en el return
 # ruta amigable http//localhost/blog/slug
 Route::get('textoblog/{slug}', function ($slug) {
     # consulta a DB
