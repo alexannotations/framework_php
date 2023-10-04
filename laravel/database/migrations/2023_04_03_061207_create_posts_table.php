@@ -18,6 +18,7 @@ return new class extends Migration
             # observe el metodo para tipo y clausula
 
             $table->unsignedBigInteger('user_id');
+            
             # relationships
             $table->foreign('user_id')->references('id')->on('users');
             

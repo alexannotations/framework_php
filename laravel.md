@@ -4,8 +4,17 @@ La ruta invoca a un controlador, el controlador maneja todas las peticiones de s
 
 ## instalacion
 Para instalar la linea de comandos de laravel ``` composer global require laravel/installer ```
+
 Crear un nuevo proyecto con la ultima version lanzada ``` laravel new project_name ```
+
 Crear un nuevo proyecto con una version en especifico ``` composer create-project --prefer-dist laravel/laravel:^9.1 project_name ```
+
+LTS ``` composer create-project --prefer-dist laravel/laravel project_name "6.*" ```
+
+``` composer create-project --prefer-dist laravel/laravel project_name "7.*" ```
+
+Ultima versión ``` composer create-project --prefer-dist laravel/laravel project_name ```
+
 
 Despues de crear el proyecto, en la carpeta raiz del proyectose puede habilitar un servidor local ``` php artisan serve ``` . O en la carpea public se ejecuta el servidor ``` php -S 127.0.0.1:8000 ```
 
@@ -209,4 +218,4 @@ Para crear con funciones ``` php artisan make:controller NamePageController --re
 ## request
 - El Request contiene la información que llega cuando se hace una petición al servidor. Se pueden traer parámetros *get*, datos de formulario en *post* o datos en la *URL*.
 - Laravel utiliza inyección de dependencias y cuando detecta que se recibe una variable request, sabe que debe inyectar el request que está accediendo a la acción.
-- Cuenta con un helper muy útil de Laravel que reemplaza el var_dump y el die; este helper es dd.
+- Cuenta con un helper muy útil de Laravel que reemplaza el ```var_dump``` y el ```die```; este helper es ```dd```.

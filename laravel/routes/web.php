@@ -110,6 +110,9 @@ Route::resource('posts',PostController::class)->middleware(['auth', 'verified'])
 #  posts/{post} ... posts.destroy › PostController@destroy
 #  posts .......... posts.index › PostController@inde
 
+# devuelve directamente una vista
+Route::view('/welcome', 'welcome');
+
 
 # las rutas de inicio de sesion se configuran en este archivo en la misma carpeta
 require __DIR__.'/auth.php';

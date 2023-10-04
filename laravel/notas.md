@@ -23,3 +23,14 @@ Se puede navegar en *localhost/login* o *localhost/register*. Las rutas se defin
 - Defina el controlador en **/app/Http/Controllers/**
 - Las migraciones se guardan en **/database/migrations/**
 
+
+## Jetstream
+login, registro, verificacion de usuarios
+
+Laravel Jetstream utiliza dos caminos para estructurar los proyectos (livewire + blade) | (inertia.js + vue)
+``` laravel new project_name_laravel8 --jet ```
+
+Para agregar el componente jetstream
+``` composer require laravel/jetstream ```
+``` php artisan jetstream:install livewire ```
+
