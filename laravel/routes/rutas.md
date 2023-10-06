@@ -114,3 +114,25 @@ Para listas las rutas que estan definidas ejecuta:
 ``` php artisan route:list ```
 
 
+## Versiones anteriores
+
+A partir de laravel 8
+```php
+Route::get('getAllProjects', [ProjectController::class,'index']);
+```
+
+
+Definir una ruta en versiones anteriores a laravel 8, antes tenían configurado el namespace en el _RouteServiceProvider_ pero ahora ya NO.
+
+Solicitamos por el metodo _get_ la ruta _/getAllProjects_ invoca el metodo _index_ de controlador _ProjectController_
+```php
+Route::get('getAllProjects', 'ProjectController@index');
+```
+
+Para conservar esta configuracion localiza y descomentala
+```php
+ // protected $namespace = 'App\\Http\\Controllers'; 
+ ``` 
+ en la ruta _app/Providers/RouteServiceProvider.php_
+
+

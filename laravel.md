@@ -18,6 +18,7 @@ Ultima versión ``` composer create-project --prefer-dist laravel/laravel projec
 
 Despues de crear el proyecto, en la carpeta raiz del proyectose puede habilitar un servidor local ``` php artisan serve ``` . O en la carpea public se ejecuta el servidor ``` php -S 127.0.0.1:8000 ```
 
+Para ver la version de laravel que se esta usando: ``` php artisan --version ```
 
 ## workflow
 El trabajo comienza en las rutas, para responder cada direccion con una publicacion de manera individual. Lo que nos lleva a desarrollar un controlador, cada metodo es basicamente la respuesta de una ruta, prepara y entrega la respuesta que cada ruta necesita, siendo los archivos que representan a las tablas. Las vistas son la respuesta de cada metodo de los controladores, estas extienden de la plantilla template y sirve para que sean legibles.
@@ -161,10 +162,12 @@ https://styde.net/blade-el-sistema-de-plantillas-de-laravel/
 
 
 ## model
-Es una clase que representa a una tabla que permite manejarla. Se crea el modelo */app/Models/* con su factory */database/factories/* y Controller */app/Http/Controllers/* ``` php artisan make:model nameofmodel -fc ```
+Es una clase que representa a una tabla que permite manejarla. Se crea el modelo */app/Models/* con su factory */database/factories/* y Controller */app/Http/Controllers/* ``` php artisan make:model NameOfModel -fc ```
 
 Permite eliminar todas las tablas, y volver a migrarlas ``` php artisan migrate:fresh ```
 Son nombrados en singular
+
+Crea un Modelo y su migracion ``` php artisan make:model Flight --migration ```
 
 
 ### factories
