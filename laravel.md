@@ -23,6 +23,11 @@ Para ver la version de laravel que se esta usando: ``` php artisan --version ```
 ## workflow
 El trabajo comienza en las rutas, para responder cada direccion con una publicacion de manera individual. Lo que nos lleva a desarrollar un controlador, cada metodo es basicamente la respuesta de una ruta, prepara y entrega la respuesta que cada ruta necesita, siendo los archivos que representan a las tablas. Las vistas son la respuesta de cada metodo de los controladores, estas extienden de la plantilla template y sirve para que sean legibles.
 
+Laravel se puede ver como un sistema de capas:
+Rutas -> view.
+Rutas -> Controller -> view.
+Rutas -> Middleware -> Controller -> view.
+
 
 ## Estructura de carpetas
 

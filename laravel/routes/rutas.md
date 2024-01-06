@@ -129,10 +129,10 @@ Solicitamos por el metodo _get_ la ruta _/getAllProjects_ invoca el metodo _inde
 Route::get('getAllProjects', 'ProjectController@index');
 ```
 
-Para conservar esta configuracion localiza y descomentala
+Para conservar esta configuracion localiza y descomenta
 ```php
  // protected $namespace = 'App\\Http\\Controllers'; 
  ``` 
- en la ruta _app/Providers/RouteServiceProvider.php_
+ en el archivo _app/Providers/RouteServiceProvider.php_
 
 

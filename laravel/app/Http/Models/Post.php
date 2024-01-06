@@ -40,5 +40,16 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Se pueden agregar atributos virtuales al modelo que no se encuentran en la base de datos
+     * este campo virtual se llama desde la vista, y cuample las relaciones de eloquent
+     *  $post->gravatar
+     * 
+     */
+        public function getGravatarAttribute(){
+            // gravatar de wordpress
+            $email = md5($this->email);
+            return "https://s.gravatar.com/avatar/$email";
+        }
 
 }

@@ -14,10 +14,12 @@ Para agregar el componente jetstream
 
 Interfaces dinámicas de forma simple y sencilla en forma de componentes
 
-``` php artisan make:livewire ComponentName ```     Creación de componente
+``` php artisan make:livewire ComponentName ```     Creación de componente _Livewire_ en _app/Http/Livewire/ComponentName.php_ y vista _component-name.blade.php_
 
 Para insertar el componente en otra vista se usa:
 '''
-<livewire: component-name>
+<livewire:component-name>
 '''
-Todo componente debe estar dentro de un div
+Todo componente debe estar dentro de un div, y debe existir un unico contenedor.
+
+El componente livewire renderiza la vista
