@@ -112,6 +112,7 @@ Route::resource('posts',PostController::class)->middleware(['auth', 'verified'])
 
 # devuelve directamente una vista
 Route::view('/welcome', 'welcome');
+Route::view('/land', 'page')->name('example');
 
 
 # las rutas de inicio de sesion se configuran en este archivo en la misma carpeta

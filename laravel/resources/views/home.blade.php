@@ -1,4 +1,4 @@
-@extends('template') {{-- trae la info de tamplate --}}
+@extends('template') {{-- trae la info de template --}}
 
 @section('content')
     <div class="bg-gray-900 px-20 py-16 rounded-lg mb-8 relative overflow-hidden">
