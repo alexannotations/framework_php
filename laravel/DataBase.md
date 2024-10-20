@@ -3,10 +3,41 @@
 __Conceptos e Instalación__
 
 ## __migrations__
+Se encuentran en */database/migrations/*
+Son nombradas en plural
+Una *migration* es una estructura inicial de las tablas, que permite tener detallados todos los cambios de la tabla en una DB
+Con el comando ``` php artisan migrate ``` podemos ejecutar todas las migraciones para convertirlas en tablas, considere como accesa php a la DB. Se require una DB vacia y configurar el archivo *.env*. Y si se ha ejecutado antes llevara el control de versiones, es decir solo creara las nuevas tablas si es necesario.
+Para crear una migracion ``` php artisan make:migration create_nameoftablewiths_table ``` observe que debe comenzar con *create_* y finalizar con *_table*, si se omite no se declara el schema. Dicho archivo se puede comenzar a editar.
 
-Es la estructura de una tabla a crearse en la BD.
 
-``` php artisan migrate ``` Para crear las tablas en la BD
+Eliminar las tablas y vistas de la base de datos
+```php artisan db:wipe --drop-views```
+
+Ejecuta las migraciones con sus datos semilla
+ ```php artisan migrate --seed```
+
+Permite eliminar todas las tablas, y volver a migrarlas ``` php artisan migrate:fresh ```
+
+Elimina todas las tablas y vistas, re-ejecuta todas las migraciones con sus datos semilla
+  ```php artisan migrate:fresh --drop-views --seed```
+
+Restablece y re-ejecuta todas las migraciones con sus datos semilla
+  ```php artisan migrate:refresh --seed```
+
+Regresa un nivel de migración
+  ```php artisan migrate:rollback```
+
+Las migrations, controllers y factories tienen su origen en los models, para crear todo a partir de un model
+``` php artisan make:model Post -mcf ```
+O bien lo anterior más los metodos CRUD en el controller
+``` php artisan make:model Post -mcf --resource ```
+```php
+   index()      create()      store()      show()      edit()      update()      destroy()
+```
+
+Crear un migracion nueva para alterar una tabla
+``` php artisan make:migration create_column_title_in_posts --table=posts ```
+
 
 
 ## __factories__
@@ -16,11 +47,15 @@ En versiones anteriores se recibia al componente _Faker_ por medio de la inyecci
 [Faker archive](https://github.com/fzaninotto/Faker) , [FakerPHP](https://github.com/FakerPHP/Faker/)
 
 
+
 ## __models__
 
-Es la representacion de la tabla dentro del sistema laravel
+Es una clase que representa a una la tabla para manejarla dentro del sistema laravel, se nombra en singular con CamelCase. Se crea el modelo */app/Models/* con su factory */database/factories/* y Controller */app/Http/Controllers/* ``` php artisan make:model NameOfModel -fc ```
 
 ``` php artisan make:model NameModel -mf ```    Para crear un modelo con migracion y factory
+
+Crea un Modelo y su migracion ``` php artisan make:model NameOfModel --migration ```
+
 
 
 ## __seeders__

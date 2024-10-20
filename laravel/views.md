@@ -16,21 +16,28 @@ El helper ```compact('name')``` permite reducir la sintaxis para pasar variables
 
 __@yield('name')__ indica una seccion que va a cambiar, invocada en otro archivo.
 
- __@extends('ubicacion.notacion.punto')__ invocar el archivo base de la vista el cual tiene una _@section_ que corresponde a _@yield_
+ __@extends('ubicacion.notacion.punto')__ inyecta el archivo base de la vista el cual tiene una _@section_ que corresponde a _@yield_
 
-__@section('<yieldName>','<contenido>')__ es la sección que tiene el contenido a mostrar que cambiar en _@yield_
+__@section('<yieldName>','<contenido>')__ es la sección que tiene el contenido a mostrar que cambiar en _@yield_, se usan para extender layouts
+
+__@include('')__ incluye el contenido hijo, los archivos partials
+
+__@component('ruta.nombre.componente.slot')__ se usa semejante a @section() pero se usan los @slots()
+
+__@slot()__
 
 __@auth__ muestra si esta registrado el usuario, se puede usar como condicional con _@else_
 
 
 
-### llamar a funciones de laravel o php
+### llamar a funciones de laravel o php en blade
 
-__asset__ busca en la carpeta public
+__asset__ busca en la carpeta public (recursos estaticos)
 ```html
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
 ```
 
+__route__ invoca la ruta
 ```html
 <a href="{{route('name.route')}}"></a>
 ```

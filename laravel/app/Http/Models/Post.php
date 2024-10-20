@@ -22,6 +22,27 @@ class Post extends Model
     #protected $table = 'post' ;
     use HasFactory;
 
+    # Vincula en nombre de la tabla del sistema de persistencia
+    # solo en caso de no respetar la convencion de nombres
+    protected $table = 'posts';
+
+    # contrario a fillable, por tanto no es necesario definirlo
+    protected $guarded = [
+        'id',
+        'user_id',
+    ];
+    
+    # Forza el casting de datos
+    protected $cast = [
+        'deadline'=>'date',
+    ];
+    
+    # evita que se entreguen datos en serializacion de contenido
+    protected $hidden = [
+        'clave_secreta',
+    ];
+
+    # indica los campos que se pueden manipular por medio del modelo
     # no se puede utilizar la asignacion masiva de datos sin antes configurarla
     # Add [title] to fillable property to allow mass assignment on [App\Models\Post].
     protected $fillable = [
@@ -42,7 +63,7 @@ class Post extends Model
 
     /**
      * Se pueden agregar atributos virtuales al modelo que no se encuentran en la base de datos
-     * este campo virtual se llama desde la vista, y cuample las relaciones de eloquent
+     * este campo virtual se llama desde la vista, y cumple las relaciones de eloquent
      *  $post->gravatar
      * 
      */

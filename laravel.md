@@ -165,53 +165,10 @@ https://styde.net/blade-el-sistema-de-plantillas-de-laravel/
 
 
 
-
-## model
-Es una clase que representa a una tabla que permite manejarla. Se crea el modelo */app/Models/* con su factory */database/factories/* y Controller */app/Http/Controllers/* ``` php artisan make:model NameOfModel -fc ```
-
-Permite eliminar todas las tablas, y volver a migrarlas ``` php artisan migrate:fresh ```
-Son nombrados en singular
-
-Crea un Modelo y su migracion ``` php artisan make:model Flight --migration ```
-
-
 ### factories
 Permite definir datos ficticios, creando una estructura principal para informacion de ejemplo.
 Se debe modificar el archivo _Seeder_ para crear los registros, para que se carge la informacion en la DB usamos ``` php artisan migrate:refresh --seed ```. Ejecutandose las migraciones, y los datos semilla, si se ejecuta por segunda vez elimina los datos y los vuelve a cargar
 
-
-
-## migrations
-Se encuentran en */database/migrations/*
-Son nombradas en plural
-Una *migration* es una estructura inicial de las tablas, que permite tener detallados todos los cambios de la tabla en una DB
-Con el comando ``` php artisan migrate ``` podemos ejecutar todas las migraciones para convertirlas en tablas, considere como accesa php a la DB. Se require una DB vacia y configurar el archivo *.env*. Y si se ha ejecutado antes llevara el control de versiones, es decir solo creara las nuevas tablas si es necesario.
-Para crear una migracion ``` php artisan make:migration create_nameoftablewiths_table ``` observe que debe comenzar con *create_* y finalizar con *_table*, si se omite no se declara el schema. Dicho archivo se puede comenzar a editar.
-
-
-Eliminar las tablas y vistas de la base de datos
-```php artisan db:wipe --drop-views```
-
-Ejecuta las migraciones con sus datos semilla
- ```php artisan migrate --seed```
-
-Elimina todas las tablas y vistas, re-ejecuta todas las migraciones con sus datos semilla
-  ```php artisan migrate:fresh --drop-views --seed```
-
-Restablece y re-ejecuta todas las migraciones con sus datos semilla
-  ```php artisan migrate:refresh --seed```
-
-
-Las migrations, controllers y factories tienen su origen en los models, para crear todo a partir de un model
-``` php artisan make:model Post -mcf ```
-O bien lo anterior más los metodos CRUD en el controller
-``` php artisan make:model Post -mcf --resource ```
-```php
-   index()      create()      store()      show()      edit()      update()      destroy()
-```
-
-Crear un migracion nueva para alterar una tabla
-``` php artisan make:migration create_column_title_in_posts --table=posts ```
 
 
 ## controller
