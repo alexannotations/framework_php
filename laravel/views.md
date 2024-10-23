@@ -30,6 +30,13 @@ __@auth__ muestra si esta registrado el usuario, se puede usar como condicional 
 
 
 
+### otras directivas
+
+Directivas iterativas y selectivas (condicionales)
+Hay algunas mezclas como _@forelse @empty @endforelse_ que es un bucle foreach con una condicional if por si el elemento esta vacio.
+
+
+
 ### llamar a funciones de laravel o php en blade
 
 __asset__ busca en la carpeta public (recursos estaticos)

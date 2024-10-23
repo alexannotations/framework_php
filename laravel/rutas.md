@@ -1,7 +1,7 @@
 # Rutas
 
 Las rutas nos permiten redirigir, trabajar con vistas
-Para definir a la ruta se utiliza la clase ```Route``` seguida de algun verbo http como ```get()``` que recibe dos paramentros, el nombre de la ruta y un closure con return. 
+Para definir a la ruta se utiliza un metodo estatico, con la clase ```Route``` seguida de algun verbo http como ```get()``` que recibe dos paramentros, el nombre de la ruta y un closure con return. 
 ```php 
 Route::get('/about', function(){ return "hola mundo";}); 
 ```
@@ -117,6 +117,7 @@ Para listas las rutas que estan definidas ejecuta:
 ## Versiones anteriores
 
 A partir de laravel 8
+indicamos la _uri_ seguida de una dupla del controlador con el metodo magico class para asociar la clase y el segundo valor la funcion a llamar del controlador.
 ```php
 Route::get('getAllProjects', [ProjectController::class,'index']);
 ```
