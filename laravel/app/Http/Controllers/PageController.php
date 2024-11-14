@@ -78,7 +78,9 @@ class PageController extends Controller
         // # consulta a DB
         // $post=$slug;
         # dado lo anterior, se requiere hacer una modificacion en las rutas
-        return view('post',['post'=>$post]);
+        
+        // return view('post',['post'=>$post]);
+        return view('post',compact('post'));
 
     }
 }

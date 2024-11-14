@@ -13,7 +13,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;    # ruta al controlador
 use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;    # solicitud http
-
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /**
@@ -113,6 +113,8 @@ Route::resource('posts',PostController::class)->middleware(['auth', 'verified'])
 # devuelve directamente una vista
 Route::view('/welcome', 'welcome');
 Route::view('/land', 'page')->name('example');
+
+Route::get('/user', [UserController::class,'index'])->name('user_relationship');
 
 
 # las rutas de inicio de sesion se configuran en este archivo en la misma carpeta

@@ -27,15 +27,25 @@ class NoteController extends Controller
     // petición GET
     public function index(): JsonResponse|JsonResource
     {
+        $notes = Note::all();
+
+        if ($notes->isEmpty()) {
+            $data = [
+                'success' => false,
+                'message' => 'No se encontraron notas',
+            ];
+            return response()->json($notes, 204);   // JsonResponse
+        }
         // formato API REST
-        // return response()->json(Note::all(), 200);   // JsonResponse
-        return NoteResource::collection(Note::all());   // JsonResource
+        // return response()->json($notes, 200);   // JsonResponse
+        return NoteResource::collection($notes);   // JsonResource
     }
 
 
     // petición POST
     public function store(NoteRequest $request): JsonResponse
     {
+        // La clase NoteRequest sustituye Validator::make() en Request
         // por convencion se retorna la data del recurso creado
         $note = Note::create($request->all());
         return response()->json([
@@ -51,6 +61,7 @@ class NoteController extends Controller
     // create  (requiere un formulario)
 
 
+    // GET  /note/{id}
     public function show(string $id): JsonResponse|JsonResource
     {
         $note = Note::find($id);
@@ -62,7 +73,7 @@ class NoteController extends Controller
    // edit  (requiere un formulario)
 
 
-   // petición PUT
+   // petición PUT  /note/{id}
     public function update(NoteRequest $request, string $id): JsonResponse
     {
         // \app\Http\Requests\NoteRequest.php
@@ -78,8 +89,34 @@ class NoteController extends Controller
         ],200); // 204
     }
 
+    // PATCH    /note/{id}
+    public function updatePartial(NoteRequest $request, string $id): JsonResponse
+    {
+        $note = Note::find($id);
+        if (!$note) {
+            $data = [
+                'message' => 'Nota no encontrada',
+            ];
+            return response()->json($data,404);
+        }
 
-    // petición DELETE
+        if ($request->has('title')) {
+            $note->title = $request->title;
+        }
+
+        // checar si funciona
+        $note->content = $request->content ?? $note->content;
+
+        $note->save();
+
+        return response()->json([
+            'success' => true,
+            'data' => $note,
+            'dataj' => new NoteResource($note),
+        ],200);
+    }
+
+    // petición DELETE  /note/{id}
     public function destroy(string $id): JsonResponse
     {
         Note::find($id)->delete();
