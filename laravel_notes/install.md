@@ -19,6 +19,7 @@ Se recomienda tambien compilar los _frontend asset_
 php artisan migrate
 npm install
 npm run dev
+npm run watch
 ```
 
 Se puede navegar en *localhost/login* o *localhost/register*. Las rutas se definen en **routes/auth.ph**
