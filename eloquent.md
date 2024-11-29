@@ -1,4 +1,4 @@
-Un __ORM__ - _Object Relational Mapping_ - es un modelo de programación que nos permite mapear las estructuras de una base de datos relacional y vincularla a entidades lógicas, accediendo indirectamente a la BD.
+Un __ORM__ - _Object Relational Mapping_ - es un modelo de programación que nos permite mapear las estructuras de una base de datos relacional y vincularla a entidades lógicas, accediendo indirectamente a la BD, se basa en ActiveRecord.
 
 __Eloquent__ es el ORM de Laravel, donde se llama al _modelo_ de la entidad que se necesita para empezar a operarlo desde el controlador.
 
@@ -164,7 +164,7 @@ Project::where('is_active', 1)
 
 
 ## Eliminación de datos
-Para eliminar registros de manera permanente, buscando su llave primaria
+Para eliminar registros de manera permanente, borrado físico, buscando su llave primaria
 ```php
 $model = Model::find($id);
 $model->delete();
@@ -188,7 +188,7 @@ Laravel mediante Route Model Binding, entiende que recibe un objeto de acuerdo a
 
 
 ### [softdeleting](https://laravel.com/docs/7.x/eloquent#soft-deleting)
-Para conservar los datos, se debe agregar el atributo a las migraciones
+Para conservar los datos, hacer un borrado lógico, se debe agregar el atributo a las migraciones
 ```$table->softDeletes();``` la cual agrega un campo llamado __deleted_at__ en la BD
 Tambien se debe agregar al _Modelo_ el trait __SoftDeletes__
 
