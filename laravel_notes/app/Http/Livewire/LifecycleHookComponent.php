@@ -3,13 +3,16 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Category;
 
 class LifecycleHookComponent extends Component
 {
     public $count = 1;
     public $message;
     public $saludo_frances;
+    public $categories; // se inicializa la primera vez, en mount
 
+    // updating
     public function increment()
     {
         $this->count++;
@@ -21,6 +24,7 @@ class LifecycleHookComponent extends Component
     public function mount()
     {
         $this->message = 'Hello';
+        $this->categories = Category::all();    // se puede traer las categorias para un menu
     }
 
     public function render()

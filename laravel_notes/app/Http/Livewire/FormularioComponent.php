@@ -6,6 +6,7 @@ use Livewire\Component;
 
 class FormularioComponent extends Component
 {
+    // Con Magic Action set cambia su valor
     public $message = 'Hola mundo';
 
     public $mostrar = false;
