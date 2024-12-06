@@ -9,6 +9,7 @@
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;    # ruta al controlador
 use App\Http\Controllers\PostController;
@@ -43,7 +44,7 @@ use Illuminate\Support\Facades\Route;
 # y dentro de la funcion group declaramos un closure
 # que contedra las rutas, es decir nos quedamos con la ruta y el metodo
 Route::controller(PageController::class)->group(
-    function(){
+    function () {
         # aqui se definen las rutas en especifico
         Route::get('/',           'home')->name('home');
         #Route::get('blog',        'blog')->name('blog');
@@ -77,7 +78,7 @@ Route::get('textoblog', function () {
 # ruta amigable http//localhost/blog/slug
 Route::get('textoblog/{slug}', function ($slug) {
     # consulta a DB
-    return 'ruta texto con parametro blog/'.$slug;
+    return 'ruta texto con parametro blog/' . $slug;
 });
 
 # se puede controlar y manejar lo enviado por un usuario
@@ -105,7 +106,7 @@ Route::middleware('auth')->group(function () {
 # Cuando usamos route::resource Laravel incluye por defecto 7 rutas.
 # https://laravel.com/docs/10.x/controllers#actions-handled-by-resource-controller
 # php artisan route:list
-Route::resource('posts',PostController::class)->middleware(['auth', 'verified'])->except('show');
+Route::resource('posts', PostController::class)->middleware(['auth', 'verified'])->except('show');
 # Se utilizan los pasos que proporciona laravel, la ruta apunta al metodo del mismo nombre;
 #  posts/{post} ... posts.destroy › PostController@destroy
 #  posts .......... posts.index › PostController@inde
@@ -114,9 +115,13 @@ Route::resource('posts',PostController::class)->middleware(['auth', 'verified'])
 Route::view('/welcome', 'welcome');
 Route::view('/land', 'page')->name('example');
 
-Route::get('/user', [UserController::class,'index'])->name('user_relationship');
+Route::get('/user', [UserController::class, 'index'])->name('user_relationship');
+
+
+// Productos en livewire
+Route::get('/products/index', App\Http\Livewire\Products\Index::class)->name('products.index');
+Route::get('/products/create', App\Http\Livewire\Products\Create::class)->name('products.create');
 
 
 # las rutas de inicio de sesion se configuran en este archivo en la misma carpeta
-require __DIR__.'/auth.php';
-
+require __DIR__ . '/auth.php';
