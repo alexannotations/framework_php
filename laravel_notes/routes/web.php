@@ -122,6 +122,11 @@ Route::get('/user', [UserController::class, 'index'])->name('user_relationship')
 Route::get('/products/index', App\Http\Livewire\Products\Index::class)->name('products.index');
 Route::get('/products/create', App\Http\Livewire\Products\Create::class)->name('products.create');
 
+// Subir archivos en livewire
+Route::get('/files/index', App\Http\Livewire\Files\Index::class)->name('files.index');
+Route::get('/files/create', App\Http\Livewire\Files\Create::class)->name('files.create');
+
+
 
 # las rutas de inicio de sesion se configuran en este archivo en la misma carpeta
 require __DIR__ . '/auth.php';
