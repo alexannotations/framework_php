@@ -121,6 +121,7 @@ Route::get('/user', [UserController::class, 'index'])->name('user_relationship')
 // Productos en livewire
 Route::get('/products/index', App\Http\Livewire\Products\Index::class)->name('products.index');
 Route::get('/products/create', App\Http\Livewire\Products\Create::class)->name('products.create');
+Route::get('/products/edit/{product}', App\Http\Livewire\Products\Edit::class)->name('products.edit');
 
 // Subir archivos en livewire
 Route::get('/files/index', App\Http\Livewire\Files\Index::class)->name('files.index');
