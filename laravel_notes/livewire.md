@@ -18,3 +18,17 @@ crear componente livewire
 
 
 
+## Eventos
+Eventos a traves de la __vista__ el cual se emite a traves del magi action $emit() y el listener con el nombre del evento y la funcion que ejecuta el evento. Se pueden pasar parametros.
+
+A traves del __componente__ controller, no se requiere listener.
+
+Y a traves de __javascript__ 
+
+
+
+## SweetAlert
+
+## Modal
+
+
