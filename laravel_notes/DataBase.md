@@ -21,7 +21,7 @@ Permite eliminar todas las tablas, y volver a migrarlas ``` php artisan migrate:
 Elimina todas las tablas y vistas, re-ejecuta todas las migraciones con sus datos semilla
   ```php artisan migrate:fresh --drop-views --seed```
 
-Restablece y re-ejecuta todas las migraciones con sus datos semilla
+Restablece (revierte) y re-ejecuta todas las migraciones con sus datos semilla
   ```php artisan migrate:refresh --seed```
 
 Regresa un nivel de migración

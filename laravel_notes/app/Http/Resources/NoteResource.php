@@ -1,10 +1,13 @@
 <?php
+
 /**
  * \app\Http\Resources\NoteResource.php
  * php artisan make:resource NoteResource
  * 
+ * Los resources apoyan la serializacion
  * 
  */
+
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
@@ -20,8 +23,8 @@ class NoteResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'=>$this->id,
-            'title' => 'Title: '.$this->title, 
+            'id' => $this->id,
+            'title' => 'Title: ' . $this->title,
             'content' => $this->content,
             'without' => 'This is an example without persistence',
         ];
