@@ -10,6 +10,9 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- directivas de livewire --}}
+    @livewireStyles
 </head>
 
 <body class="font-sans antialiased">
@@ -25,6 +28,9 @@
             {{ $slot }}
         </main>
     </div>
+
+    {{-- directivas de livewire --}}
+    @livewireScripts
 </body>
 
 </html>
