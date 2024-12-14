@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function avatar()
+    {
+        // https://randomuser.me/
+        return 'https://gravatar.com/avatar/' . md5($this->email) . '?s=50';
+    }
 }
