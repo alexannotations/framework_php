@@ -32,7 +32,11 @@ class ShowThread extends Component
         // enviamos las respuestas a la pregunta
         return view('livewire.show-thread', [
             // envia todas las respuestas que pertenezcan a esta pregunta, whereNull() muestra las anidadas sin que el contenido hijo no se repita
-            'replies' => $this->thread->replies()->whereNull('reply_id')->get()
+            'replies' => $this->thread
+                ->replies()
+                ->whereNull('reply_id') // Condición utilizada para listar solo las respuestas padres
+                ->with('user', 'replies.user', 'replies.replies')   // ayuda al rendimiento al hacer menos queries (mantiene 9 consultas)
+                ->get()
         ]);
     }
 }

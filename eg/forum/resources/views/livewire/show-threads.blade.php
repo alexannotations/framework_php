@@ -1,7 +1,7 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-10 py-12">
     {{-- columna --}}
     <div class="w-64">
-        <a href=""
+        <a href="{{ route('threads.create') }}"
             class="block w-full py-4 mb-10 bg-gradient-to-r from-blue-600 to-blue-700 hover:to-blue-600 text-white/90 font-bold text-xs text-center rounded-md">
             Preguntar
         </a>
@@ -84,8 +84,11 @@
                                 </svg>
                                 {{ $thread->replies_count }}
                                 Respuesta{{ $thread->replies_count !== 1 ? 's' : '' }}
-                                |
-                                <a href="" class="hover:text-white">Editar</a>
+                                @can('update', $thread)
+                                    |
+                                    {{-- trabaja con la ruta de editar la pregunta con autorización --}}
+                                    <a href="{{ route('threads.edit', $thread) }}" class="hover:text-white">Editar</a>
+                                @endcan
                             </span>
 
                         </p>

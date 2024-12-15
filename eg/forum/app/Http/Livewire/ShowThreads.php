@@ -41,6 +41,7 @@ class ShowThreads extends Component
             $threads->where('category_id', $this->category);
         }
 
+        $threads->with('user', 'category'); // ayuda al rendimiento al hacer menos queries
         $threads->withCount('replies')->latest();
 
         return view('livewire.show-threads',[

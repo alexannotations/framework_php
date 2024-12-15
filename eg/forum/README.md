@@ -1,3 +1,10 @@
+# Foro
+Proyecto hecho con Laravel y Livewire
+
+
+## TODO
+Falta crear CRUD para las categorias
+Paginacion
 
 
 ## Instalar sistema desarrollo
@@ -17,18 +24,18 @@ https://heroicons.com/
 
 
 
-## instalacion de configuración inicial
+## Instalación de configuración inicial
 
 ``` composer create-project laravel/laravel:^10.0 forum ```
 ``` composer require laravel/breeze:1.20 --dev ```
-``` php artisan breeze:install  -> blade ```
+``` php artisan breeze:install ```  -> blade 
 ``` composer require livewire/livewire:2.12 ```
 
 
 
 
 
-## como se crearon los recursos
+## Como se crearon los recursos
 
 Componente livewire para todas las preguntas (plural)
 ``` php artisan make:livewire show-threads ```
@@ -50,3 +57,12 @@ Componente livewire para la respuesta (singular)
 
 Agregar politica de actualizacion (solo deben poder editarse las respuestas que pertenezcan al usuario)
 ``` php artisan make:policy ReplyPolicy ```
+
+Controlador para una pregunta
+``` php artisan make:controller ThreadController ```
+
+Agregar politica para pregunta
+``` php artisan make:policy ThreadPolicy ```
+
+Se agrega una libreria de desarrollo 
+``` composer require barryvdh/laravel-debugbar --dev ```

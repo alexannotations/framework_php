@@ -9,6 +9,12 @@ class Thread extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'category_id',
+        'title',
+        'body'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -23,5 +29,5 @@ class Thread extends Model
     {
         return $this->hasMany(Reply::class);
     }
-    
+
 }

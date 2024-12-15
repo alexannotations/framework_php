@@ -29,7 +29,7 @@ class ShowReply extends Component
 
         // validate
         $this->validate(['body' => 'required']);
-        // create
+        // crea a traves de un usuario
         auth()->user()->replies()->create([
             'reply_id' => $this->reply->id,
             'thread_id' => $this->reply->thread->id,    // incluye a la respuesta padre por la relacion
