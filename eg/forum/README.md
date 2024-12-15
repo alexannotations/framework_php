@@ -47,3 +47,6 @@ Componente livewire para una unica pregunta (singular)
 
 Componente livewire para la respuesta (singular)
 ``` php artisan make:livewire show-reply ```
+
+Agregar politica de actualizacion (solo deben poder editarse las respuestas que pertenezcan al usuario)
+``` php artisan make:policy ReplyPolicy ```

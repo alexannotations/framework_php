@@ -45,11 +45,14 @@
                         {{-- Todo enlace hace que el navegador se actualice, se evita con prevent
                                 Trabaja con el $toggle (switch) de la propiedad is_creating, que alterna entre dos estados al escuchar un evento.
                                 Utiliza el método mágico de Livewire $toggle para alternar el valor de una propiedad de false a true y viceversa --}}
-                        <a href="#" wire:click.prevent="$toggle('is_creating')" class="hover:text-white">{{ $is_creating ? 'Ocultar' : 'Responder'}}</a>
+                        <a href="#" wire:click.prevent="$toggle('is_creating')" class="hover:text-white">{{ $is_creating ? 'Cancelar' : 'Responder'}}</a>
                     @endif
 
+                    @can ('update', $reply){{-- Evita que se muestre el boton, la politica de acceso tambien se maneja desde el componente, verifica si se puede <metodo_de_la_Politica> a la <entidad> --}}
                     {{-- evento para editar la respuesta --}}
-                    <a href="#" wire:click.prevent="$toggle('is_editing')" class="hover:text-white">Editar</a>
+                    <a href="#" wire:click.prevent="$toggle('is_editing')" class="hover:text-white">{{ $is_editing ? 'Cancelar' : 'Editar'}}</a>
+                    @endcan
+
                 </p>
             </div>
         </div>

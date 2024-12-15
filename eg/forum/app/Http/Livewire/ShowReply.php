@@ -2,11 +2,14 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;   // Polica de autorización
 use App\Models\Reply;
 use Livewire\Component;
 
 class ShowReply extends Component
 {
+    use AuthorizesRequests;
+
     // se pasa como el segundo parametro en el componente blade,
     // desde la vista se espera una Reply
     public Reply $reply;
@@ -47,10 +50,14 @@ class ShowReply extends Component
     }
 
     // livewire utiliza el metodo updated<nombre de la variable>()
-    // Se puede recibir parametro, pero el proyeto no lo requiere
+    // Se puede recibir parametro, pero el proyeto no lo requiere, eg. $is_editing
     public function updatedIsEditing($is_editing)
     {
         // dd($is_editing);
+
+        // evalua si esta autorizado, update es el nombre del metodo que actualiza a la entidad respuesta
+        $this->authorize('update', $this->reply);
+
         $this->is_creating = false; // cancela, para no mostrar el formulario (editar/crear)
         $this->body = $this->reply->body;
     }
@@ -58,6 +65,8 @@ class ShowReply extends Component
 
     public function updateReply()
     {
+        // control de acceso, error 403
+        $this->authorize('update', $this->reply);
         // validate
         $this->validate(['body' => 'required']);
         // update, solo requiere actualizar el body
