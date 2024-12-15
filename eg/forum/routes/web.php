@@ -3,10 +3,17 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-
+// Todas las preguntas
 Route::get('/', \App\Http\Livewire\ShowThreads::class)
 ->middleware('auth')
 ->name('dashboard');
+
+
+// Unica pregunta, la ruta espera un parametro id {thread} para realizar una busqueda implicita
+Route::get('/thread/{thread}', \App\Http\Livewire\ShowThread::class)
+->middleware('auth')
+->name('thread');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

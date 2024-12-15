@@ -30,8 +30,8 @@ https://heroicons.com/
 
 ## como se crearon los recursos
 
-Componente livewire
-``` php artisan make:livewire show-thread ```
+Componente livewire para todas las preguntas (plural)
+``` php artisan make:livewire show-threads ```
 
 Opciones de la barra lateral, categorias de las preguntas
 ``` php artisan make:model Category -mf ```
@@ -42,3 +42,8 @@ Hilo (pregunta) principal del foro
 Para mostrar el numero de respuestas que tiene la pregunta
 ``` php artisan make:model Reply -mf ```
 
+Componente livewire para una unica pregunta (singular)
+``` php artisan make:livewire show-thread ```
+
+Componente livewire para la respuesta (singular)
+``` php artisan make:livewire show-reply ```

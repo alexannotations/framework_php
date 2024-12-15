@@ -20,7 +20,7 @@
             @endforeach
 
             <li>
-                {{-- al nivel de "Todos los resultados" vuelve a su estado inicial la propiedad $category del componente --}}
+                {{-- al nivel de "Todos los resultados" vuelve a su estado inicial la propiedad $category del componente la enviar una cadena en blanco --}}
                 <a href="#" wire:click.prevent="filterByCategory('')"
                     class="p-2 rounded-md flex bg-slate-800 items-center gap-2 text-white/60 hover:text-white font-semibold text-xs capitalize">
                     <span class="w-2 h-2 rounded-full" style="background-color: #000;"></span>
@@ -37,7 +37,7 @@
         <form class="mb-4">
             <input type="text" placeholder="// ..."
                 class="bg-slate-800 border-0 rounded-md w-1/3 p-3 text-white/60 text-xs"
-                {{-- propiedad search del componente livewire --}}
+                {{-- envia el texto capturado a la propiedad search del componente livewire --}}
                 wire:model="search">
         </form>
 
@@ -55,7 +55,9 @@
                     <div class="w-full">
                         {{-- titulo --}}
                         <h2 class="mb-4 flex items-start justify-between">
-                            <a href="" class="text-xl font-semibold text-white/90">
+                            {{-- indicamos la ruta implicita la pregunta (<name>, <param>),
+                                tambien se puede trabajar con el $thread->id como param --}}
+                            <a href="{{ route('thread', $thread) }}" class="text-xl font-semibold text-white/90">
                                 {{ $thread->title }}
                             </a>
                             {{-- categoria --}}
