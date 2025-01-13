@@ -5,7 +5,7 @@ En versiones anteriores, Laravel usaba "_Laravel Mix_", podemos decir que es el 
 
 ## helpers
 
-El helper ```compact('name')``` permite reducir la sintaxis para pasar variables a las vistas 
+El helper ```compact('name_example')``` permite reducir la sintaxis ```['name_example' => $name_example]``` para pasar variables a las vistas.
 
 
 
@@ -14,17 +14,46 @@ El helper ```compact('name')``` permite reducir la sintaxis para pasar variables
 
 ### extender varias vistas
 
-__@yield('name')__ indica una seccion que va a cambiar, invocada en otro archivo.
+__@yield('name')__ Se utiliza para definir una sección de contenido (que va a cambiar) que se llenará (invocada en otro archivo) con la directiva _@section_ en vistas secundarias.
 
- __@extends('ubicacion.notacion.punto')__ inyecta el archivo base de la vista el cual tiene una _@section_ que corresponde a _@yield_
+```php
+<!-- layout.blade.php -->
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>@yield('title')</title>
+    </head>
+    <body>
+        @yield('content')
+    </body>
+    </html>
+```
 
-__@section('<yieldName>','<contenido>')__ es la sección que tiene el contenido a mostrar que cambiar en _@yield_, se usan para extender layouts
+ __@extends('ubicacion.notacion.punto.layout')__ Se usa para indicar que una vista secundaria debe heredar de una vista principal, inyectando el archivo base de la vista _ubicacion.notacion.punto.layout_ el cual tiene una _@section_ que corresponde a _@yield_.
 
-__@include('')__ incluye el contenido hijo, los archivos partials
+__@section('<yieldName>','<contenido>')__ es la sección que tiene el contenido a mostrar que cambiar en _@yield_, se usan para extender layouts.
 
-__@component('ruta.nombre.componente.slot')__ se usa semejante a @section() pero se usan los @slots()
+```php
+<!-- child.blade.php -->
+    @extends('layout')
 
-__@slot()__
+    @section('title', 'Página de Inicio')
+
+    @section('content')
+        <p>Bienvenido a la página de inicio.</p>
+    @endsection
+```
+
+
+
+__@include('')__ incluye el contenido hijo, los archivos partials, permitiendo incluir vistas dentro de otras vistas, puede recibir parametros como un array asociativo o modelos.
+
+
+__@component('ruta.nombre.componente.slot')__ Se usa para incluir componentes de Blade en las vistas, su uso es semejante a @section() pero se usan los _@slot()_, puede tener logica y vista, y recibir parametros al igual que include ```php artisan make:component Alert``` Crea una Clase extends Component y una vista blade.
+
+
+__@slot()__ se utiliza dentro de un componente _@component_ de Blade para definir varias secciones o "slots" de contenido que pueden ser inyectados en el componente desde la vista que lo incluye, para definir secciones nombradas que se pueden llenar con contenido
+
 
 __@auth__ muestra si esta registrado el usuario, se puede usar como condicional con _@else_
 
