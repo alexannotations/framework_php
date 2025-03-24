@@ -1,5 +1,5 @@
 # Foro
-Proyecto hecho con Laravel y Livewire
+Proyecto hecho con Laravel 10 y Livewire 2
 
 
 ## TODO
