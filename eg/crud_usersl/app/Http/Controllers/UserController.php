@@ -22,7 +22,7 @@ class UserController extends Controller
     {
         $request->validate([
             'name'      => ['required'],
-            'email'     => ['required', 'email', 'unique:users'],
+            'email'     => ['required', 'email', 'unique:users'], // el campo email debe ser unico en la tabla users
             'password'  => ['required', 'min:8'],
         ]);
 

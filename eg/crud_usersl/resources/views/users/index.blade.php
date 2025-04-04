@@ -15,16 +15,21 @@
 
 {{-- Formulario Create --}}
             <div class="card shadow my-4 border-0">
+                {{-- acción del formulario --}}
                 <form action="{{ route('users.store') }}" method="POST">
                     <div class="card-body">
+                        {{-- mostrar y gestionar errores en la vista --}}
                         @if($errors->any())
                         <div class="alert alert-danger">
+                            <ul>
                             @foreach($errors->all() as $error)
-                                - {{ $error }} <br>
+                                    <li>{{ $error }}</li>
                             @endforeach
+                            </ul>
                         </div>
                         @endif
 
+                        {{-- campos del formulario  con recuperacion de datos tras errores --}}
                         <div class="form-row">
                             <div class="col-sm-3">
                                 <input type="text" name="name" class="form-control" placeholder="Nombre" value="{{ old('name') }}">

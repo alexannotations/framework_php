@@ -112,6 +112,7 @@ Route::resource('posts', PostController::class)->middleware(['auth', 'verified']
 #  posts .......... posts.index › PostController@inde
 
 # devuelve directamente una vista
+# (<uri>, <resource/view/blade>, [array datos para la vista])
 Route::view('/welcome', 'welcome');
 Route::view('/land', 'page')->name('example');
 

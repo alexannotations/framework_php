@@ -1,6 +1,6 @@
 # Foro
 Proyecto hecho con Laravel 6 (php 7.4)
-CRUD de usuarios con contraseña
+Registro de posts
 
 
 ## TODO
@@ -17,7 +17,7 @@ CRUD de usuarios con contraseña
 
 ## __``` php artisan tinker ```__
 
-``` factory(App\User::class, 12)->create() ```
+
 
 
 
@@ -26,11 +26,10 @@ CRUD de usuarios con contraseña
 
 
 ## Como se crearon los recursos
-``` php artisan make:controller UserController ```
+``` php artisan make:controller PageController --resource --model=Page ```
 
 
 
 ## Instalación de configuración inicial
 
-``` composer create-project --prefer-dist laravel/laravel crud_usersl "6.*" ```
-
+``` composer create-project --prefer-dist laravel/laravel post_log "6.*" ```
