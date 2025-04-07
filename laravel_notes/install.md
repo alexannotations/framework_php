@@ -3,7 +3,7 @@
 ``` composer install ``` para descargar las librerias de php
 
 
-``` php artisan key:generate``` genera la app key para hacer el sistema seguro; generando cookies y contraseñas a partir de ahi.
+``` php artisan key:generate ``` genera la app key para hacer el sistema seguro; generando cookies y contraseñas a partir de ahi.
 
 
 Despues de instalar componentes y recursos de los kit de inicio (Breeze o Jetstream) construimos los assets a nivel de frontend con ``` npm install && npm run dev ``` puede sustituir los ampersand por ;
@@ -22,7 +22,7 @@ npm run dev
 npm run watch
 ```
 
-``` npm outdate``` analizará y te dirá que dependencias están desactualizadas, y ```npm update``` para actualizar dichas dependencias.
+``` npm outdate ``` analizará y te dirá que dependencias están desactualizadas, y ``` npm update ``` para actualizar dichas dependencias.
 
 Se puede navegar en *localhost/login* o *localhost/register*. Las rutas se definen en **routes/auth.ph**
 
