@@ -15,12 +15,59 @@
 |
 */
 
+
 // use App\Http\Controllers\PageController;
+use App\Post;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+
+
+
+Route::get('eloquent', function () {
+    $posts = Post::all();   // para todos los datos
+
+    $posts = Post::where('id','>=','15')->orderBy('id','desc')->take(3)->get();   // para ejecutar una consulta
+    foreach ($posts as $post) {
+        echo $post->id .' - '. $post->title . '<br>';
+    }
+});
+
+Route::get('posts', function () {
+    $posts = Post::get();
+    // Muestra la realción entre Post y User
+    foreach ($posts as $post) {
+        echo "
+            $post->id
+            -
+            {$post->user->name}
+            -
+            <strong>$post->title</strong>
+            <br>";
+    }
+});
+
+Route::get('users', function () {
+    $users = User::get();
+
+    foreach ($users as $user) {
+        echo
+            $user->id
+            .' - '.
+            $user->name
+            .': '.
+            $user->posts->count()
+            .'<br>'
+            ;
+    }
+});
+
 
 Route::get('/', function () {
     return view('welcome');
 });
+
 
 Route::get('ehome', function () {
     return view('ehome');

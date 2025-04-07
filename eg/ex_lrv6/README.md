@@ -1,5 +1,7 @@
 # Foro
 Proyecto hecho con Laravel 6 (php 7.4)
+Utiliza UI para autentificación
+Con objeto de mostrar conceptos generales
 Registro de posts
 
 
@@ -12,10 +14,12 @@ Registro de posts
 ``` configurar .env ```
 ``` php artisan key:generate ```
 ``` php artisan migrate ```
+``` php artisan migrate:refresh --seed ```
 
 
 
 ## __``` php artisan tinker ```__
+``` factory(App\Post::class, 30)->create() ``` 
 
 
 
@@ -32,6 +36,7 @@ Registro de posts
 ``` php artisan make:controller PostController ```
 ``` php artisan make:request PostRequest ```
 ``` php artisan ui bootstrap --auth ```
+``` php artisan make:model Post -m -f ```
 
 
 ## Instalación de configuración inicial
