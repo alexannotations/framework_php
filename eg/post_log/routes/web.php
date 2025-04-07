@@ -22,8 +22,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', function () {
-    return view('home');
+Route::get('ehome', function () {
+    return view('ehome');
 });
 
 
@@ -37,3 +37,7 @@ Route::get('post/success', 'PostController@success')->name('posts.success');
 
 
 Route::resource('pages', 'PageController'); // 7 rutas CRUD
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

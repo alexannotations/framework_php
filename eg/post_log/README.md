@@ -31,10 +31,12 @@ Registro de posts
 ``` php artisan make:middleware VerifyAge ```
 ``` php artisan make:controller PostController ```
 ``` php artisan make:request PostRequest ```
-``` php artisan ui:auth ```
+``` php artisan ui bootstrap --auth ```
 
 
 ## Instalación de configuración inicial
 
 ``` composer create-project --prefer-dist laravel/laravel post_log "6.*" ```
 ``` composer require laravel/ui --dev ```
+``` npm install && npm run dev ```
+

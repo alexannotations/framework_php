@@ -18,7 +18,11 @@ Laravel Jetstream utiliza dos caminos para estructurar los proyectos (livewire +
 
 Para agregar el componente jetstream
 ``` composer require laravel/jetstream ```
-``` php artisan jetstream:install livewire ```
+Instalación inicial:
+``` php artisan jetstream:install {stack} ```
+Reemplaza {stack} por la opción deseada: _inertia_ o _livewire_
+
+``` php artisan jetstream:install livewire --teams ``` Para instalación con estilos y autenticación
 
 
 
@@ -43,4 +47,14 @@ Es un sitema mas antiguo que utiliza CSS bootstrap.
 Login, registro y autenticación de usuarios
 ``` composer require laravel/ui --dev ```
 
-``` php artisan ui bootstrap --auth ``` para estilos y autenticación
+``` php artisan ui:auth ``` Se instala el sistema de autenticación sin estilos ni framework de javascript
+``` php artisan ui bootstrap --auth ``` para estilos con bootstrap y autenticación 
+``` php artisan ui vue ``` el sistema basico de vue
+``` php artisan ui react ``` el sistema basico de react
+
+
+
+# Ejecución de comandos para completar la instalación
+En todos los casos de uso de framework javascript se requiere usar NPM para instalar las dependencias necesarias
+``` npm install && npm run dev ``` al completarse correctamente la información de _resources/sass_ y _/js_ se compilaron y se envian a la carpeta publica  _css_ y _js_ como indica la configuración del archivo _webpack.mix.js_
+
