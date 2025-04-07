@@ -27,9 +27,14 @@ Registro de posts
 
 ## Como se crearon los recursos
 ``` php artisan make:controller PageController --resource --model=Page ```
-
+``` php artisan make:middleware Subscribed ```
+``` php artisan make:middleware VerifyAge ```
+``` php artisan make:controller PostController ```
+``` php artisan make:request PostRequest ```
+``` php artisan ui:auth ```
 
 
 ## Instalación de configuración inicial
 
 ``` composer create-project --prefer-dist laravel/laravel post_log "6.*" ```
+``` composer require laravel/ui --dev ```

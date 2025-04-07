@@ -12,6 +12,9 @@ El helper ```compact('name_example')``` permite reducir la sintaxis ```['name_ex
 
 ## Directivas blade
 
+El sistema de plantillas Blade utiliza una sintaxis de estructura tipo __@__ y llaves __{}__ para identificar directivas y variables, se utiliza la extensión __.blade.php__, lo que distingue su sintaxis de los archivos PHP tradicionales. El navegador no muestra directamente las plantillas Blade, Laravel crea un archivo con estructura _php_ en _storage/framework/views_ que muestra el resultado de construcción. 
+
+
 ### extender varias vistas
 
 __@yield('name')__ Se utiliza para definir una sección de contenido (que va a cambiar) que se llenará (invocada en otro archivo) con la directiva _@section_ en vistas secundarias.
@@ -82,3 +85,14 @@ __route__ invoca la ruta
 <a href="{{url('path')}}"></a>
 ```
 
+
+
+### Ejemplo de herencia con _includes_
+```php
+// En tu plantilla base
+@include('header')
+@section('content')
+    <!-- Contenido principal aquí -->
+@endsection
+@include('footer')
+```

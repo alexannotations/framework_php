@@ -36,5 +36,11 @@ Todo componente debe estar dentro de un div, y debe existir un unico contenedor.
 
 El componente livewire renderiza la vista
 
+
+
 # [Laravel UI](https://github.com/laravel/ui)
 Es un sitema mas antiguo que utiliza CSS bootstrap.
+Login, registro y autenticación de usuarios
+``` composer require laravel/ui --dev ```
+
+``` php artisan ui bootstrap --auth ``` para estilos y autenticación

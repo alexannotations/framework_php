@@ -22,4 +22,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('home', function () {
+    return view('home');
+});
+
+
+// Request example
+Route::get('post', function () {
+    return view('post');
+});
+Route::post('post','PostController@store')->name('posts.store');
+Route::get('post/success', 'PostController@success')->name('posts.success');
+
+
+
 Route::resource('pages', 'PageController'); // 7 rutas CRUD

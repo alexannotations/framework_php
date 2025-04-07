@@ -22,6 +22,8 @@ npm run dev
 npm run watch
 ```
 
+``` npm outdate``` analizará y te dirá que dependencias están desactualizadas, y ```npm update``` para actualizar dichas dependencias.
+
 Se puede navegar en *localhost/login* o *localhost/register*. Las rutas se definen en **routes/auth.ph**
 
 
