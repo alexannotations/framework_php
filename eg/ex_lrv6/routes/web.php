@@ -55,13 +55,28 @@ Route::get('users', function () {
         echo
             $user->id
             .' - '.
-            $user->name
+            $user->get_name /* mutator */
             .': '.
             $user->posts->count()
             .'<br>'
             ;
     }
 });
+
+
+
+Route::get('collections', function () {
+    $users = User::all();
+
+    dd($users->contains('name','Keira Dickens'));   // parcialmente no lo encuentra
+});
+
+
+Route::get('serialization', function () {
+    $user = User::find(3);
+    dd($user->toJson(), $user->toArray());
+});
+
 
 
 Route::get('/', function () {

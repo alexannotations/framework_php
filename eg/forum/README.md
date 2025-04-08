@@ -18,7 +18,7 @@ Paginacion
 ``` npm run dev ```
 
 
-## Algunos recursos extenos utilizados
+## Algunos recursos externos utilizados
 https://heroicons.dev/
 https://heroicons.com/
 

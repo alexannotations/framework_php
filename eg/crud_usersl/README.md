@@ -21,7 +21,7 @@ CRUD de usuarios con contraseña
 
 
 
-## Algunos recursos extenos utilizados
+## Algunos recursos externos utilizados
 
 
 

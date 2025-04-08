@@ -15,6 +15,7 @@ Registro de posts
 ``` php artisan key:generate ```
 ``` php artisan migrate ```
 ``` php artisan migrate:refresh --seed ```
+``` npm install && npm run dev ```
 
 
 
@@ -25,7 +26,7 @@ Registro de posts
 
 
 
-## Algunos recursos extenos utilizados
+## Algunos recursos externos utilizados
 
 
 
@@ -43,5 +44,5 @@ Registro de posts
 
 ``` composer create-project --prefer-dist laravel/laravel post_log "6.*" ```
 ``` composer require laravel/ui --dev ```
-``` npm install && npm run dev ```
+
 
