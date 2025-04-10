@@ -5,6 +5,7 @@ Blog con posts de texto, imagenes y videos, con login de usuarios
 
 
 ## TODO
+Agregar secció para comentarios
 
 
 
@@ -13,8 +14,8 @@ Blog con posts de texto, imagenes y videos, con login de usuarios
 ``` configurar .env ```
 ``` php artisan key:generate ```
 ``` php artisan migrate --seed ```
-``` npm install && npm run dev ```
-
+``` npm install ```
+``` npm run dev ```
 
 
 
@@ -32,6 +33,8 @@ packagist.org
 
 ## Como se crearon los recursos
 ``` php artisan make:model Post -mfc ```
+``` php artisan make:controller PageController ```
+``` php artisan make:controller Backend/PostController --resource ```
 
 
 

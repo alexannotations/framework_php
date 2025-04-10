@@ -29,4 +29,16 @@ class Post extends Model
     }
 
 
+    // Relationship
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    // extracto del body
+    public function getGetExcerptAttribute($key)
+    {
+        return substr($this->body, 0, 140);
+    }
+
 }
