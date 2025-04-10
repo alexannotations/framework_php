@@ -37,14 +37,17 @@ packagist.org
 
 ## Instalación de configuración inicial
 
-``` laravel new blog_l6 --auth ``` Realmente se clono de github
-``` composer require cviebrock/eloquent-sluggable ```
-``` composer update ``` Actualizamos algunas dependencias
+- ``` laravel new blog_l6 --auth ``` Realmente se clono de github
 
-``` composer require cviebrock/eloquent-sluggable:6.0.2 ``` para el error __syntax error, unexpected '|', expecting variable (T_VARIABLE)__
+- ``` composer require cviebrock/eloquent-sluggable ```
 
-``` php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvider" ```
-``` php artisan config:clear && composer dump-autoload ```
+Pero presenta el error __syntax error, unexpected '|', expecting variable (T_VARIABLE)__ de caracteristica _Union Types_ en PHP 8.0
+- ``` composer config platform.php 7.4 ``` cambiar la configuración para trabajar con una version antigua  ``` composer diagnose ``` tambien se agrego _"conflict"_ a _composer.json_ para evitar instalar la version de _cocur/slugify_ conflictiva.
+- ``` composer update ``` Actualizamos las dependencias
+
+Otros intentos no funcionales, entre elloss una clase que heredara, se deja para referencia.
+- ``` php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvider" ```
+- ``` php artisan config:clear && composer dump-autoload ```
 
 
 
