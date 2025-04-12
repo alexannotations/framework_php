@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <label for="content">Contenido Embebido</label>
                             {{-- Observe como se escribieron los old, con coma y operador de fusión (operador ternario) --}}
-                            <textarea name="iframe" class="form-control" required>{{ old('iframe') ?? $post->iframe }}</textarea>
+                            <textarea name="iframe" class="form-control">{{ old('iframe') ?? $post->iframe }}</textarea>
                         </div>
 
                         <div class="form-group">

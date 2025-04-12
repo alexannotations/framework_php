@@ -1,4 +1,4 @@
-# Foro
+# Lista de usuarios
 Proyecto hecho con Laravel 6 (php 7.4)
 CRUD de usuarios con contraseña
 

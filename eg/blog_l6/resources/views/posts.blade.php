@@ -10,6 +10,13 @@
             @foreach ($posts as $post)
                 <div class="card mb-4">
                 <div class="card-body">
+                    @if ($post->image)
+                        <img src="{{ $post->get_image }}" alt="Imagen" class="card-img-top mb-2" {{-- class="img-fluid mb-3"--}} width="100%">
+                    @elseif($post->iframe)
+                        <div class="embed-responsive embed-responsive-16by9 mb-2">
+                            {!! $post->iframe !!}
+                        </div>
+                    @endif
                     <h5 class="card-title">{{ $post->title }}</h5>
                     <p class="card-text">{{ $post->get_excerpt }}</p>
                     <a href="{{ route('post', $post) }}">Leer más (show)</a>
