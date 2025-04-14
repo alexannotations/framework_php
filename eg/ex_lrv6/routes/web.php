@@ -24,6 +24,19 @@ use Illuminate\Support\Facades\Route;
 
 
 
+Route::resource('/exampleupload', 'FilePrivateController')->names('eupload');
+// Route::resource('/exampleupload', FilePrivateController::class)->names('eupload');
+// Route::get('/exampleupload/', [FilePrivateController::class, 'index'])->name('eupload.index');
+// Route::get('/exampleupload/create', [FilePrivateController::class, 'create'])->name('eupload.create');
+// Route::post('/exampleupload', [FilePrivateController::class, 'store'])->name('eupload.store');
+// Route::get('/exampleupload/{file_name}', [FilePrivateController::class, 'show'])->name('eupload.show');
+// Route::get('/exampleupload/{file_name}/edit', [FilePrivateController::class, 'edit'])->name('eupload.edit');
+// Route::put('/exampleupload/{file_name}', [FilePrivateController::class, 'update'])->name('eupload.update');
+// Route::delete('/exampleupload/{file_name}', [FilePrivateController::class, 'destroy'])->name('eupload.destroy');
+
+
+
+
 
 Route::get('eloquent', function () {
     $posts = Post::all();   // para todos los datos
