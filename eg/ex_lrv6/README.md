@@ -1,4 +1,4 @@
-# Foro
+# Ejemplos varios
 Proyecto hecho con Laravel 6 (php 7.4)
 Utiliza UI para autentificación
 Con objeto de mostrar conceptos generales

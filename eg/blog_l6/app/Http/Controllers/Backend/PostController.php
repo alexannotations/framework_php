@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 
 class PostController extends Controller
@@ -97,9 +98,24 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, Post $post)
     {
-        //
+        // $post->update($request->all());
+        $post->update([
+            'title' => $request->title,
+            'body' => $request->body,
+            'iframe' => $request->iframe,
+        ]);
+        
+        // Imagen
+        if ($request->file('file')) {
+            // eliminar imagen
+            Storage::disk('public')->delete($post->image);
+            // guarda el archivo, debemos guardar la ruta en la base de datos
+            $post->image = $request->file('file')->store('posts', 'public');
+            $post->save();
+        }
+        return back()->with('status', 'Post updated successfully');
     }
 
     /**
@@ -108,8 +124,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        // eliminar imagen
+        Storage::disk('public')->delete($post->image);
+        $post->delete();
+        return back()->with('status', 'Post deleted successfully');
     }
 }

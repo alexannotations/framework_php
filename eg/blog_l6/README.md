@@ -1,4 +1,4 @@
-# Foro
+# Blog
 Proyecto hecho con Laravel 6 (php 7.4)
 Utiliza UI para autentificación
 Blog con posts de texto, imagenes y videos, con login de usuarios
@@ -7,15 +7,18 @@ Blog con posts de texto, imagenes y videos, con login de usuarios
 ## TODO
 Agregar sección para comentarios
 Revisar __pen testing file upload__
-
+Las imagenes no se almacenan donde deberian, y tampoco se muestran
 
 
 ## Instalar sistema desarrollo
 ``` composer install ```
 ``` configurar .env ```
 ``` php artisan key:generate ```
-``` php artisan migrate --seed ```
+``` php artisan migrate ```
+``` php artisan migrate:refresh --seed ```
+``` php artisan storage:link ```
 ``` npm install ```
+``` npm outdate ```
 ``` npm run dev ```
 
 
