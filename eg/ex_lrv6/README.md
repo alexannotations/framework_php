@@ -38,11 +38,12 @@ Registro de posts
 ``` php artisan make:request PostRequest ```
 ``` php artisan ui bootstrap --auth ```
 ``` php artisan make:model Post -m -f ```
+``` php artisan make:controller WeatherController ```
 
 
 ## Instalación de configuración inicial
 
 ``` composer create-project --prefer-dist laravel/laravel post_log "6.*" ```
 ``` composer require laravel/ui --dev ```
-
+``` composer require guzzlehttp/guzzle ```
 

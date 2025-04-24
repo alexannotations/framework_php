@@ -19,8 +19,10 @@
 // use App\Http\Controllers\PageController;
 use App\Post;
 use App\User;
+use App\Http\Controllers\WeatherController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -116,3 +118,7 @@ Route::resource('pages', 'PageController'); // 7 rutas CRUD
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// Consume OpenWeatherAPI
+Route::get('/weather_api', 'WeatherController@getWeather')->name('weather.api');
