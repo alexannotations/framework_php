@@ -18,3 +18,12 @@ y en el archivo de rutas
 
 Filtro de peticiones HTTP para asegurarnos que los datos recibidos cumplen ciertos criterios.
 
+
+
+## Validación de archivos
+
+El método `validate` utiliza la información proporcionada por el cliente, como la extensión del archivo y el tipo MIME del archivo enviado en los encabezados de la solicitud. Esto se hace a través de la regla de validación `mimes` o `mimetypes`.
+
+### **magic bytes**
+Los **magic bytes** son una secuencia específica de bytes al inicio de un archivo que identifica su tipo real, independientemente de su extensión o tipo MIME. Este método es más confiable para determinar el tipo de archivo, ya que no depende de la información proporcionada por el cliente.
+

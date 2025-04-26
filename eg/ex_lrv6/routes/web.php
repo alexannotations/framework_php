@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
+include 'tdd.php'; // Test Driven Development
 
 
 Route::resource('/exampleupload', 'FilePrivateController')->names('eupload');

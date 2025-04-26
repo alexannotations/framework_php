@@ -18,7 +18,8 @@ Se utilizan dos tecnologias, con dos sintaxis.
 - PhpUnit
 - Pest
 
-# Test unitario
+# Pruebas Unitarias (Unit Tests)
+Comportamiento detallado de componentes individuales.
 
 Semanticamente se utiliza:
 __Feature test__ prueba el circuito completo
@@ -27,11 +28,23 @@ __Feature test__ prueba el circuito completo
 __Unit test__ piezas de codigo
 ```php artisan make:test NameTest --unit```
 
-Para nombrar los metodos de la clase NameTest se usa test_name_snake_case()
-Para ejecutar un test
-```php artisan test```
+Para nombrar los metodos de la clase NameTest se usa _test_name_snake_case()_
+
+## Ejecutar los test
+Desde Laravel 7.3 en adelante pueden utilizar el comando ```php artisan test``` en lugar de ```vendor/bin/phpunit``` para ejecutar las pruebas
+
+
+
+# Pruebas Funcionales (Functional Tests):
+
+Valoran el sistema en su totalidad, evaluando integraciones entre diferentes capas de la aplicación. Son esenciales para comprobar que todas las partes del sistema trabajan conjuntamente como se espera.
 
 
 
 # Test de integración
+
+
+
+# Testing HTTP
+
 

@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// TDD
+// el API resource no requiere only o except
+// Solo muestra las 5 rutas
+Route::apiResource('posts', 'Api\TDDPostController');

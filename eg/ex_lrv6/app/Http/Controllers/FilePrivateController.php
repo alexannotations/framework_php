@@ -81,11 +81,23 @@ class FilePrivateController extends Controller
 
         // Validar el archivo recibido
         $validatedData = $request->validate([
+            // valida que el archivo tenga una extensión correspondiente a los tipos MIME
             'file_uploaded_by_user' => ['required', 'file', 'mimes:pdf,jpg,jpeg,png', 'max:2048'], // Máximo 2 MB
+            // valida que el archivo tenga un tipo MIME específico
+            'file' => 'required|mimetypes:image/jpeg,image/png,application/pdf',
         ]);
+
+        // Validar manualmente los archivos (más seguro) utilizando los magic bytes, 
+        // utilizando funciones como 'finfo_file' o librerías específicas.
 
         // Obtener el archivo del request
         $file = $request->file('file_uploaded_by_user');
+
+        $mimeType = finfo_file(finfo_open(FILEINFO_MIME_TYPE), $file->getPathname());
+
+        if (!in_array($mimeType, ['image/jpg', 'image/jpeg', 'image/png', 'application/pdf'])) {
+            return back()->withErrors(['file' => 'El archivo no es válido.']);
+        }
 
         // Verificar si el archivo es válido
         if (!$file || !$file->isValid()) {

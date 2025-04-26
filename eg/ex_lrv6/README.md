@@ -4,6 +4,8 @@ Utiliza UI para autentificación
 Con objeto de mostrar conceptos generales
 - Registro de posts
 - CRUD de usuarios con contraseña
+- Consumir una API
+- API con TDD
 
 
 ## TODO
@@ -26,6 +28,13 @@ Con objeto de mostrar conceptos generales
 
 
 
+## Comandos
+
+Ejecutar las pruebas.
+``` php vendor/bin/phpunit --testdox ```
+``` php vendor/phpunit/phpunit/phpunit ```
+
+
 
 
 ## Algunos recursos externos utilizados
@@ -42,6 +51,17 @@ Con objeto de mostrar conceptos generales
 ``` php artisan make:model Post -m -f ```
 ``` php artisan make:controller WeatherController ```
 ``` php artisan make:controller UserController ```
+
+
+
+### TDD
+``` php artisan make:test UserTest ```
+``` php artisan make:test UserTest --unit ```
+``` php artisan make:test PageTest ```
+``` php artisan make:test Http/Controllers/Api/PostControllerTest ```
+``` php artisan make:model TDDPost -fm ```
+``` php artisan make:controller Api/TDDPostController --api --model=TDDPost ```
+
 
 
 ## Instalación de configuración inicial
