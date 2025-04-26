@@ -2,7 +2,8 @@
 Proyecto hecho con Laravel 6 (php 7.4)
 Utiliza UI para autentificación
 Con objeto de mostrar conceptos generales
-Registro de posts
+- Registro de posts
+- CRUD de usuarios con contraseña
 
 
 ## TODO
@@ -21,6 +22,7 @@ Registro de posts
 
 ## __``` php artisan tinker ```__
 ``` factory(App\Post::class, 30)->create() ``` 
+``` factory(App\User::class, 12)->create() ```
 
 
 
@@ -39,6 +41,7 @@ Registro de posts
 ``` php artisan ui bootstrap --auth ```
 ``` php artisan make:model Post -m -f ```
 ``` php artisan make:controller WeatherController ```
+``` php artisan make:controller UserController ```
 
 
 ## Instalación de configuración inicial

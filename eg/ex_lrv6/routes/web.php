@@ -40,14 +40,14 @@ Route::resource('/exampleupload', 'FilePrivateController')->names('eupload');
 
 
 
-Route::get('eloquent', function () {
+Route::get('posts/eloquent', function () {
     $posts = Post::all();   // para todos los datos
 
     $posts = Post::where('id','>=','15')->orderBy('id','desc')->take(3)->get();   // para ejecutar una consulta
     foreach ($posts as $post) {
         echo $post->id .' - '. $post->title . '<br>';
     }
-});
+})->name('posts.eloquent');
 
 Route::get('posts', function () {
     $posts = Post::get();
@@ -61,9 +61,10 @@ Route::get('posts', function () {
             <strong>$post->title</strong>
             <br>";
     }
-});
+})->name('posts.users');
 
-Route::get('users', function () {
+
+Route::get('users_count', function () {
     $users = User::get();
 
     foreach ($users as $user) {
@@ -76,7 +77,12 @@ Route::get('users', function () {
             .'<br>'
             ;
     }
-});
+})->name('users.count');
+
+Route::get('users', 'UserController@index')->name('users.index');
+Route::post('users', 'UserController@store')->name('users.store');  // POST
+Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy'); // DELETE
+
 
 
 
@@ -84,13 +90,13 @@ Route::get('collections', function () {
     $users = User::all();
 
     dd($users->contains('name','Keira Dickens'));   // parcialmente no lo encuentra
-});
+})->name('collections');
 
 
 Route::get('serialization', function () {
     $user = User::find(3);
     dd($user->toJson(), $user->toArray());
-});
+})->name('serialization');
 
 
 
@@ -107,7 +113,7 @@ Route::get('ehome', function () {
 // Request example
 Route::get('post', function () {
     return view('post');
-});
+})->name('post');
 Route::post('post','PostController@store')->name('posts.store');
 Route::get('post/success', 'PostController@success')->name('posts.success');
 

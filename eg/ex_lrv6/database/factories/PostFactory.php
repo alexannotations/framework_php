@@ -12,7 +12,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Post::class, function (Faker $faker) {
     return [
-        'user_id' => rand(1, 4),
+        'user_id' => User::inRandomOrder()->first()->id,
         'title' => $faker->sentence,
         'content' => $faker->paragraph,
         'created_at' => now(),

@@ -85,6 +85,17 @@
                 </div>
 
                 <div class="links">
+                    <a href="{{ route('eupload.index') }}">Private File Upload</a>
+                    <a href="{{ route('users.index') }}">CRUD usuarios</a>
+                    <a href="{{ route('post') }}">Post</a>
+                    <a href="{{ route('posts.eloquent') }}">Some Posts</a>
+                    <a href="{{ route('posts.users') }}">Posts with users</a>
+                    <a href="{{ route('users.count') }}">Users count Posts</a>
+                    <a href="{{ route('serialization') }}">Serialization</a>
+                    <a href="{{ route('weather.api') }}">Weather API</a>
+                </div>
+
+                <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
