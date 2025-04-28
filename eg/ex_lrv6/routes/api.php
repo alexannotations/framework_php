@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // TDD
 // el API resource no requiere only o except
-// Solo muestra las 5 rutas
-Route::apiResource('posts', 'Api\TDDPostController');
+// Solo muestra las 5 rutas en /api/tddposts
+Route::apiResource('tddposts', 'Api\TDDPostController');

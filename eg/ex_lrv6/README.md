@@ -51,6 +51,7 @@ Ejecutar las pruebas.
 ``` php artisan make:model Post -m -f ```
 ``` php artisan make:controller WeatherController ```
 ``` php artisan make:controller UserController ```
+``` php artisan make:request TDDPostRequest ```
 
 
 

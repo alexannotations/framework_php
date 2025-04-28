@@ -4,10 +4,26 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\TDDPost;
-use Illuminate\Http\Request;
+use App\Http\Requests\TDDPostRequest; // se cambio por el Illuminate\Http\Request
 
 class TDDPostController extends Controller
 {
+
+    protected $tDDPost;
+
+    /**
+     * El constructor de la clase recibe el parámetro a través de **inyección de dependencias**.
+     * Laravel resuelve automáticamente la dependencia al instanciar el controlador, utilizando el contenedor de servicios.
+     * Esto permite que el controlador tenga acceso a la instancia del modelo TDDPost sin necesidad de crearla manualmente.
+     *
+     */
+    public function __construct(TDDPost $tDDPost)
+    {
+        $this->tDDPost = $tDDPost;
+
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -21,12 +37,12 @@ class TDDPostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  TDDPostRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TDDPostRequest $request)
     {
-        $post = TDDPost::create($request->all());
+        $post = $this->tDDPost::create($request->all());
         // return response()->json($post, 201);
         return response()->json(['data' => $post,], 201);
     }
@@ -45,11 +61,11 @@ class TDDPostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  TDDPostRequest  $request
      * @param  \App\TDDPost  $tDDPost
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TDDPost $tDDPost)
+    public function update(TDDPostRequest $request, TDDPost $tDDPost)
     {
         //
     }

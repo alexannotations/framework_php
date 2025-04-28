@@ -8,6 +8,7 @@
 */
 
 use App\Post;   // Model
+use App\User;   // Model
 use Faker\Generator as Faker;
 
 $factory->define(Post::class, function (Faker $faker) {
