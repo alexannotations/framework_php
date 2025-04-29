@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Controllers\Api;
 
+use App\TDDPost;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -56,6 +57,37 @@ class TDDPostControllerTest extends TestCase
             // revisa que el Request no pase la validacion (title no este vacio)
             ->assertJsonValidationErrors('title');
 
+    }
+
+    public function test_show()
+    {
+        $post = factory(TDDPost::class)->create();
+
+        // $response = $this->json('GET',"/api/tddposts/{$post->id}");
+        $response = $this->getJson(route('tdd_posts.show', $post->id));
+        
+        $response->assertJsonStructure([
+            'data' => [
+                'id',
+                'title',
+                'content',
+                'created_at',
+                'updated_at',
+            ]
+        ])->assertJson([
+            'data' => [
+                'title' => $post->title,
+                'content' => $post->content,
+            ]
+        ])->assertStatus(200);
+    }
+
+    public function test_404_show()
+    {
+        $response = $this->json('GET',"/api/tddposts/10000");
+        // $response = $this->getJson(route('tdd_posts.show', 10000));
+        
+        $response->assertStatus(404);
     }
 
 }

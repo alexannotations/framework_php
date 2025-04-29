@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\TDDPost;
 use App\Http\Requests\TDDPostRequest; // se cambio por el Illuminate\Http\Request
+use App\TDDPost;
 
 class TDDPostController extends Controller
 {
@@ -52,10 +52,15 @@ class TDDPostController extends Controller
      *
      * @param  \App\TDDPost  $tDDPost
      * @return \Illuminate\Http\Response
+     * Considere que el nombre del parametro debe ser el mismo que el definido en la ruta, 
+     * en caso contrario no se ejecutara adecuadamente.
+     * Para ver el nombre "php artisan route:list" al definirse como apiResource
      */
-    public function show(TDDPost $tDDPost)
+    public function show(TDDPost $tddpost)
     {
-        //
+        return response()->json([
+            'data' => $tddpost,
+        ]);
     }
 
     /**
@@ -65,7 +70,7 @@ class TDDPostController extends Controller
      * @param  \App\TDDPost  $tDDPost
      * @return \Illuminate\Http\Response
      */
-    public function update(TDDPostRequest $request, TDDPost $tDDPost)
+    public function update(TDDPostRequest $request, TDDPost $tddpost)
     {
         //
     }
@@ -76,7 +81,7 @@ class TDDPostController extends Controller
      * @param  \App\TDDPost  $tDDPost
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TDDPost $tDDPost)
+    public function destroy(TDDPost $tddpost)
     {
         //
     }
