@@ -31,7 +31,12 @@ class TDDPostController extends Controller
      */
     public function index()
     {
-        //
+        // Una coleccion la puede devolver como un array o como un objeto JSON
+        return response()->json($this->tDDPost->paginate(), 200);
+        
+        // return response()->json([
+        //     'data' => $this->tDDPost::all(),
+        // ]);
     }
 
     /**
@@ -72,7 +77,10 @@ class TDDPostController extends Controller
      */
     public function update(TDDPostRequest $request, TDDPost $tddpost)
     {
-        //
+        $tddpost->update($request->all());
+        return response()->json([
+            'data' => $tddpost,
+        ]);
     }
 
     /**
@@ -83,6 +91,7 @@ class TDDPostController extends Controller
      */
     public function destroy(TDDPost $tddpost)
     {
-        //
+        $tddpost->delete();
+        return response()->json(null, 204);
     }
 }

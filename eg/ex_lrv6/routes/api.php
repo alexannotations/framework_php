@@ -22,4 +22,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // TDD
 // el API resource no requiere only o except
 // Solo muestra las 5 rutas en /api/tddposts de la clase TDDPostController
-Route::apiResource('tddposts', 'Api\TDDPostController')->names('tdd_posts');
+Route::apiResource('tddposts', 'Api\TDDPostController')
+    // autenticacion mediante token
+    ->middleware('auth:api')->names('tdd_posts');

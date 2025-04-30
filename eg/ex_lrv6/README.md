@@ -33,6 +33,7 @@ Con objeto de mostrar conceptos generales
 Ejecutar las pruebas.
 ``` php vendor/bin/phpunit --testdox ```
 ``` php vendor/phpunit/phpunit/phpunit ```
+``` php vendor/phpunit/phpunit/phpunit --filter test_update ``` indica que se ejecute un test especifico.
 
 
 
