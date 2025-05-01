@@ -12,12 +12,12 @@ El helper ```compact('name_example')``` permite reducir la sintaxis ```['name_ex
 
 ## Directivas blade
 
-El sistema de plantillas Blade utiliza una sintaxis de estructura tipo __@__ y llaves __{}__ para identificar directivas y variables, se utiliza la extensión __.blade.php__, lo que distingue su sintaxis de los archivos PHP tradicionales. El navegador no muestra directamente las plantillas Blade, Laravel crea un archivo con estructura _php_ en _storage/framework/views_ que muestra el resultado de construcción. 
+El sistema de plantillas Blade utiliza una sintaxis de estructura tipo __@__ y llaves dobles __{{ }}__ para identificar directivas y variables, se utiliza la extensión __.blade.php__, lo que distingue su sintaxis de los archivos PHP tradicionales. El navegador no muestra directamente las plantillas Blade, Laravel crea un archivo con estructura _php_ en _storage/framework/views_ que muestra el resultado de construcción. 
 
 
 ### extender varias vistas
 
-__@yield('name')__ Se utiliza para definir una sección de contenido (que va a cambiar) que se llenará (invocada en otro archivo) con la directiva _@section_ en vistas secundarias.
+__@yield('name')__ Se utiliza para definir una sección (jerarquia padre) de contenido (que va a cambiar) que se llenará (invocada en otro archivo) con la directiva _@section_ en vistas secundarias.
 
 ```php
 <!-- layout.blade.php -->
@@ -71,6 +71,11 @@ Hay algunas mezclas como _@forelse @empty @endforelse_ que es un bucle foreach c
 
 ### llamar a funciones de laravel o php en blade
 
+Aunque no se recomienda, podemos utilizar codigo php puro.
+```php
+@php ($variable = 'contenido')
+```
+
 __asset__ busca en la carpeta public (recursos estaticos)
 ```html
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
@@ -85,6 +90,14 @@ __route__ invoca la ruta
 <a href="{{url('path')}}"></a>
 ```
 
+Incluso podemos indicar la ruta como se muestran con _route:list_ aunque no ofrece la flexibilidad del helper
+```html
+<!-- dirige a ExpenseReportController@store -->
+<form action="/expense_reports" method="POST">
+    <!-- data form -->
+</form>
+```
+
 
 
 ### Ejemplo de herencia con _includes_
@@ -96,3 +109,8 @@ __route__ invoca la ruta
 @endsection
 @include('footer')
 ```
+
+
+### @CSRF
+Se debe generar un token CSRF para los datos enviados por formulario. Con el helper _@csrf_ se genera un input **__token** de tipo _hidden_.
+

@@ -107,6 +107,7 @@ Desde las rutas puede ser un arreglo asociativo con el nombre de las variables q
     Route:post   | Guardar
     Route:delete | Eliminar
     Route:put    | Actualizar
+    Route:patch  | Actualizar
 
  - *api.php* para el desarrollo de una api
  - *console.php* para el acceso desde terminal de consola 
@@ -184,3 +185,9 @@ Para crear con funciones ``` php artisan make:controller NamePageController --re
 - El Request contiene la información que llega cuando se hace una petición al servidor. Se pueden traer parámetros *get*, datos de formulario en *post* o datos en la *URL*.
 - Laravel utiliza inyección de dependencias y cuando detecta que se recibe una variable request, sabe que debe inyectar el request que está accediendo a la acción.
 - Cuenta con un helper muy útil de Laravel que reemplaza el ```var_dump``` y el ```die```; este helper es ```dd```.
+
+
+
+# Tinker
+
+Ofrece un entorno de pruebas tomando la inicialización de laravel.

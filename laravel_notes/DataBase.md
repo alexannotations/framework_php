@@ -4,7 +4,7 @@ __Conceptos e Instalación__
 
 ## __migrations__
 Se encuentran en */database/migrations/*
-Son nombradas en plural
+Son nombradas en _plural_
 Una *migration* es una estructura inicial de las tablas, que permite tener detallados todos los cambios de la tabla en una DB
 Con el comando ``` php artisan migrate ``` podemos ejecutar todas las migraciones para convertirlas en tablas, considere como accesa php a la DB. Se require una DB vacia y configurar el archivo *.env*. Y si se ha ejecutado antes llevara el control de versiones, es decir solo creara las nuevas tablas si es necesario.
 Para crear una migracion ``` php artisan make:migration create_nameoftablewiths_table ``` observe que debe comenzar con *create_* y finalizar con *_table*, si se omite no se declara el schema. Dicho archivo se puede comenzar a editar.
@@ -35,9 +35,13 @@ O bien lo anterior más los metodos CRUD en el controller
    index()      create()      store()      show()      edit()      update()      destroy()
 ```
 
-Crear un migracion nueva para alterar una tabla
-``` php artisan make:migration create_column_title_in_posts --table=posts ```
+Crear un migracion nueva para alterar una tabla. Por convención se indica que se agrega una columna 'comment' en la tabla 'post'
+``` php artisan make:migration create_column_comment_in_posts --table=posts ```
 
+Crear una tabla
+``` php artisan make:migration create_table_expense_reports --create=expense_reports ```
+ó
+``` php artisan make:migration create_expense_reports_table ```
 
 
 ## __factories__
@@ -50,7 +54,10 @@ En versiones anteriores se recibia al componente _Faker_ por medio de la inyecci
 
 ## __models__
 
-Es una clase que representa a una la tabla para manejarla dentro del sistema laravel, se nombra en singular con CamelCase. Se crea el modelo */app/Models/* con su factory */database/factories/* y Controller */app/Http/Controllers/* ``` php artisan make:model NameOfModel -fc ```
+Es una clase que representa a una la tabla para manejarla dentro del sistema laravel, se nombra en _singular_ con CamelCase. En versiones anteriores no existia una carpeta _entity_ o _model_ por lo que se almacenaba en */app/*
+``` php artisan make:model ExpenseReport ```
+
+En versiones recientes se crea el modelo en */app/Models/* con su factory */database/factories/* y Controller */app/Http/Controllers/* ``` php artisan make:model NameOfModel -fc ```
 
 ``` php artisan make:model NameModel -mf ```    Para crear un modelo con migracion y factory
 
