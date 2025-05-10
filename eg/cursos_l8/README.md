@@ -43,6 +43,8 @@ Ejecutar las pruebas.
 ``` php artisan make:model Category -mf ```
 ``` php artisan make:model Course -mf ```
 ``` php artisan make:model Post -mf ```
+``` php artisan make:livewire CourseList ```
+``` php artisan make:controller PageController ```
 
 
 

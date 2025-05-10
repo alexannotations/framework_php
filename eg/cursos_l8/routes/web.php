@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controller\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'index');
+// Route::view('/', 'index')->name('home');
+Route::view('/', [PageController::class, 'home'])->name('home');
+Route::view('/curso', [PageController::class, 'course'])->name('course');
+
 
 Route::get('/welcome', function () {
     return view('welcome');
 });
+
+
+
 
 Route::middleware([
     'auth:sanctum',
