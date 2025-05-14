@@ -16,7 +16,8 @@ use App\Http\Controller\PageController;
 
 // Route::view('/', 'index')->name('home');
 Route::view('/', [PageController::class, 'home'])->name('home');
-Route::view('/curso', [PageController::class, 'course'])->name('course');
+// {entidad:elemento_de_consulta} si no se coloca :slug ; se utilizaria el id
+Route::view('/curso/{course:slug}', [PageController::class, 'course'])->name('course');
 
 
 Route::get('/welcome', function () {

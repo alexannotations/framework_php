@@ -14,6 +14,11 @@ class Course extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     public function getExceprtAttribute()
     {
         return substr($this->description, 0, 80). "...";
@@ -24,6 +29,14 @@ class Course extends Model
         // gravatar
         $email = md($this->email);
         return "https//s.gravatar.com/avatar/$email";
+    }
+
+    public function similar()
+    {
+        return $this->where('category_id', $this->category_id)
+        ->with('user')
+        ->take(2)
+        ->get();
     }
 
 }

@@ -7,7 +7,8 @@ Desarrollo bajo TDD
 
 
 ## TODO
-
+``` npx tailwindcss-cli@latest build ./resources/css/app.css -o ./public/css/app.css ```
+ toma los compontes de node y crear la hoja de estilos que aparece en public
 
 
 ## Instalar sistema desarrollo
@@ -45,6 +46,7 @@ Ejecutar las pruebas.
 ``` php artisan make:model Post -mf ```
 ``` php artisan make:livewire CourseList ```
 ``` php artisan make:controller PageController ```
+``` php artisan make:component course-card ```
 
 
 
