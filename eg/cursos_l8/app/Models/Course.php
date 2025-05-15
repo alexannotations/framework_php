@@ -26,9 +26,14 @@ class Course extends Model
 
     public function getAvatarAttribute()
     {
+        $path = $this->profile_photo_path;
         // gravatar
         $email = md($this->email);
-        return "https//s.gravatar.com/avatar/$email";
+        if($this->profile_photo_path){
+            return asset("storage/$path");  // FIXME: 
+        }else{
+            return "https://s.gravatar.com/avatar/{$email}";
+        }
     }
 
     public function similar()

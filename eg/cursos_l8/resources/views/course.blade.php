@@ -38,7 +38,7 @@
             {{-- Cursos Similares --}}
             <div class="grid grid-cols-2 gap-4 my-8">
                 @foreach ($course->similar() as $course)
-                    {{-- componente --}}
+                    {{-- componente blade --}}
                     <x-course-card :course="$course" />
                 @endforeach
             </div>
@@ -50,5 +50,6 @@
         <h2 class="text-xl text-gray-600">Fórmate online como profesional en tecnología</h2>
     </div>
 
+    {{-- componente livewire --}}
     <livewire:course-list>
 @endsection

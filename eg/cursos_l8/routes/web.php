@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controller\PageController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +15,9 @@ use App\Http\Controller\PageController;
 */
 
 // Route::view('/', 'index')->name('home');
-Route::view('/', [PageController::class, 'home'])->name('home');
+Route::get('/', [PageController::class, 'home'])->name('home');
 // {entidad:elemento_de_consulta} si no se coloca :slug ; se utilizaria el id
-Route::view('/curso/{course:slug}', [PageController::class, 'course'])->name('course');
+Route::get('/curso/{course:slug}', [PageController::class, 'course'])->name('course');
 
 
 Route::get('/welcome', function () {

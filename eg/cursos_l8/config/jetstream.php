@@ -13,6 +13,7 @@ return [
     | This configuration value informs Jetstream which "stack" you will be
     | using for your application. In general, this value is set for you
     | during installation and will not need to be changed after that.
+    | Otra opción puede ser 'inertia'
     |
     */
 
@@ -59,7 +60,7 @@ return [
 
     'features' => [
         // Features::termsAndPrivacyPolicy(),
-        // Features::profilePhotos(),
+        Features::profilePhotos(),  // para mostrar una imagen propia del usuario
         // Features::api(),
         // Features::teams(['invitations' => true]),
         Features::accountDeletion(),
