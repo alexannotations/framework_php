@@ -48,5 +48,6 @@ Ejecutar las pruebas.
 
 ``` composer create-project --prefer-dist laravel/laravel blog_l9 "9.1" ```
 ``` composer require laravel/breeze --dev ```
+``` npm install laravel-vite-plugin --save-dev ```
 
 
