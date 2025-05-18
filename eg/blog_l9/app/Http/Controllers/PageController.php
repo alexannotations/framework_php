@@ -10,24 +10,25 @@ class PageController extends Controller
 
     public function home(Request $request)
 	{
-		// $search = $request->search;
+        // dd($_REQUEST, $request->all());
+		$search = $request->search;
 
-		// $posts = Post::where('title', 'LIKE', "%{$search}%")
-		// 	// ->with('user')
-		// 	->latest()->paginate();
+		$posts = Post::where('title', 'LIKE', "%{$search}%")
+			->with('user')
+			->latest()->paginate();
 
-    return view('home',/* compact('posts')*/);
+        return view('home', compact('posts'));
     }
 
 
-    public function blog()
-    {
-        $posts = Post::latest()->paginate();
-        return view('blog', ['posts' => $posts]);
-    }
+    // public function blog()
+    // {
+    //     $posts = Post::latest()->paginate();
+    //     return view('blog', ['posts' => $posts]);
+    // }
 
 
-    public function post(Post $post) 
+    public function post(Post $post)
     {
         return view('post', ['post' => $post]);
     }

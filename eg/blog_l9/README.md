@@ -60,6 +60,8 @@ Para visualizar los cambios en los estilos al editar ``` npm run watch ```
 
 ## Algunos recursos externos utilizados
 - [Icons created by Freepik - Flaticon](https://www.flaticon.com/)
+- [HeroIcons](https://heroicons.com/)
+- [Packagist](https://packagist.org/)
 
 
 ## Como se crearon los recursos
@@ -76,5 +78,6 @@ Para visualizar los cambios en los estilos al editar ``` npm run watch ```
 - ``` composer create-project --prefer-dist laravel/laravel blog_l9 "9.1" ```
 - ``` composer require laravel/breeze --dev ```
 - ``` npm install laravel-vite-plugin --save-dev ```  [Reference](https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md)
-
+- ``` npm install lodash axios ```
+- ``` composer require barryvdh/laravel-debugbar --dev  ```
 

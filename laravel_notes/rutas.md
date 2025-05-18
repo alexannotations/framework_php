@@ -1,7 +1,7 @@
 # Rutas
 
 Las rutas nos permiten redirigir, trabajar con vistas
-Para definir a la ruta se utiliza un metodo estatico, con la clase ```Route``` seguida de algun verbo http como ```get()``` que recibe dos paramentros, el nombre de la ruta y un closure con return. 
+Para definir a la ruta se utiliza un metodo estatico, con la clase ```Route``` seguida de algun verbo HTTP como ```get()``` que recibe dos paramentros; el _nombre url de la ruta_, y un _closure con return_ o _clase@action_. 
 ```php 
 Route::get('/about', function(){ return "hola mundo";}); 
 ```

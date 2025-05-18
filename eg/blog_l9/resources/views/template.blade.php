@@ -14,13 +14,14 @@
         <header class="flex justify-between items-center py-4">
         <div class="flex items-center flex-grow gap-4">
             <a href="{{ route('home') }}">
-                <img src="{{ asset('images/logo.png') }}" 
+                <img src="{{ asset('images/logo.png') }}"
                 class="h-12 "
                 alt="Logo">
             </a>
-            <a href="{{ route('blog') }}">Blog</a>
-            <form action="">
-                <input type="text" placeholder="Buscar">
+
+            <form action="{{ route('home') }}" method="GET" class="flex-grow">
+                <input type="text" placeholder="Buscar" name="search" value="{{ request('search') }}"
+                class="border border-gray-200 rounded py-2 px-4 w-1/2">
             </form>
         </div>
 
@@ -35,10 +36,10 @@
         {{-- FIXME: el gradiente no lo esta mostrando --}}
         <div class="opacity-60 h-px mb-8"
         style="background: linear-gradient(to right,
-        rgba(200, 200, 200, 0) 0%, 
-        rgba(200, 200, 200, 1) 30%, 
-        rgba(200, 200, 200, 1) 70%, 
-        rgba(200, 200, 200, 0) 100%, 
+        rgba(200, 200, 200, 0) 0%,
+        rgba(200, 200, 200, 1) 30%,
+        rgba(200, 200, 200, 1) 70%,
+        rgba(200, 200, 200, 0) 100%,
         );">
 
         </div>

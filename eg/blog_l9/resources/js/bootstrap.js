@@ -1,4 +1,5 @@
-window._ = require('lodash');
+import _ from 'lodash'; // Importa lodash usando la sintaxis 'import' de ES Modules en lugar de 'require()' de CommonJS
+window._ = _;
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -6,7 +7,8 @@ window._ = require('lodash');
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
+import axios from 'axios'; // Importa axios usando ES Modules en lugar de CommonJS
+window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
