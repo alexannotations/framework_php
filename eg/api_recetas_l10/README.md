@@ -20,7 +20,13 @@ Terminar los CRUD y validación de Tags y Category
 
 
 ## __``` php artisan tinker ```__
-
+Creación de token Bearer
+``` php
+$user = App\Models\User::find(5);
+$user->createToken('app');  // 'app' hace referecia al dispositivo de conexión (personal_access_tokens->name)
+// copiamos plainTextToken: para pegarlo en Auth -> Bearer Token del API Client
+$user->tokens()->delete();  // elimina los tokens del usuario
+``` 
 
 
 
@@ -30,12 +36,18 @@ Terminar los CRUD y validación de Tags y Category
 [telescope](localhost/telescope)
 
 
-## Notas sobre el uso para un __API client__
-- Para actualizar con cliente API en el cuerpo (Body form-data) con metodo POST de la peticion se agrega el campo **_method** **PUT**. Si se trabaja con Query Parameters se selecciona PUT sin ser necesario agregar el campo **_method**. Los tags en recipe se envian como array [1,2,3]
-- Otro parametro a enviar en _Headers_ para no recibir una respuesta _html_ es **Accept** e indicar **application/json**
+## Notas sobre el uso en un __API client__
+- [all](http://api_recetas_l10.test/api/v1/categories)
+- [one](http://api_recetas_l10.test/api/v1/categories/1)
 
-[all](http://api_recetas_l10.test/api/v1/categories)
-[one](http://api_recetas_l10.test/api/v1/categories/1)
+- Enviar en _Headers_ para no recibir una respuesta _html_ el parametro **Accept** e indicar **application/json**.
+
+- Para obtener el token desde el API Client con POST debe dirigirse a [api/login](http://api_recetas_l10.localhost/api/login) y llenar los parametros _email_, _password_ y *device_name* y la cabecera _Accept_ con _application/json_.
+
+- Para actualizar con cliente API en el cuerpo (Body form-data) con metodo POST de la peticion se agrega el campo **_method** **PUT**. Si se trabaja con Query Parameters se selecciona PUT sin ser necesario agregar el campo **_method**. Los tags en recipe se envian como array [1,2,3].
+
+- Para crear un recurso use POST en _Body_ -> _form-data_ con los parametros necesarios.
+
 
 
 
@@ -56,6 +68,8 @@ Terminar los CRUD y validación de Tags y Category
 - ``` php artisan make:resource RecipeResource ```
 - ``` php artisan make:request StoreRecipeRequest ```
 - ``` php artisan make:request UpdateRecipeRequest ```
+- ``` php artisan make:controller Api/LoginController ```
+- ``` php artisan make:policy RecipePolicy ```
 
 
 
@@ -65,5 +79,6 @@ Terminar los CRUD y validación de Tags y Category
 - ``` composer create-project --prefer-dist laravel/laravel api_recetas_l10 "10.*" ```
 - ``` composer require laravel/telescope ```    para analisis
     - ``` php artisan telescope:install ``` ver resultados en _url.test/telescope_
+- ``` composer require laravel/sanctum ``` 
 
 

@@ -30,9 +30,9 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-        // El metodo por default recibe un id
-        // show(string $id)
-        // $category = Category::findOrFail($id);
+     *   // El metodo por default recibe un id
+     *   // show(string $id)
+     *   // $category = Category::findOrFail($id);
      */
     public function show(Category $category)
     {

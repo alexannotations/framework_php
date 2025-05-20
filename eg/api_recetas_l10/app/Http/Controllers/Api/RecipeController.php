@@ -27,12 +27,18 @@ class RecipeController extends Controller
      */
     public function store(\App\Http\Requests\StoreRecipeRequest $request)
     {
-        $recipe = Recipe::create($request->all());
+        // se crean las recetas a partir del usuario logeado
+        $recipe = $request->user()->recipes()->create($request->all());
 
-        // // auxilia a validar las etiquetas, FIXME: ya no funciona con el Request personalizado
-        // if ($tags = json_decode($request->tags)) {
+        $tags = json_decode($request->tags);
+        // // auxilia a validar las etiquetas
+        // if ($tags)) {
         //     $recipe->tags()->attach($tags); // agrega las etiquetas a la receta
         // }
+        $recipe->tags()->attach($tags); // agrega las etiquetas a la receta
+
+        $recipe->image = $request->file('image')->store('recipes', 'public');
+        $recipe->save();
 
         return response()->json(new RecipeResource($recipe), Response::HTTP_CREATED);  // HTTP 201
     }
@@ -40,9 +46,9 @@ class RecipeController extends Controller
     /**
      * Display the specified resource.
      *
-        // El metodo por default recibe un id
-        // show(string $id)
-        // $recipe = Recipe::findOrFail($id);
+     *   // El metodo por default recibe un id
+     *   // show(string $id)
+     *   // $recipe = Recipe::findOrFail($id);
      */
     public function show(Recipe $recipe)
     {
@@ -58,9 +64,16 @@ class RecipeController extends Controller
      */
     public function update(\App\Http\Requests\UpdateRecipeRequest $request, Recipe $recipe)
     {
+        $this->authorize('update', $recipe);
         $recipe->update($request->all());
-        if ($tags = json_decode($request->tags)) {
+        $tags = json_decode($request->tags);
+        if ($tags) {
             $recipe->tags()->sync($tags);   // sincroniza lo que existe (elimina lo que existe y crea lo que se asigna)
+        }
+
+        if ($request->file('image')) {
+            $recipe->image = $request->file('image')->store('recipes', 'public');
+            $recipe->save();
         }
         return response()->json(new RecipeResource($recipe), Response::HTTP_OK);  // HTTP 200
     }
@@ -70,6 +83,7 @@ class RecipeController extends Controller
      */
     public function destroy(Recipe $recipe)
     {
+        $this->authorize('delete', $recipe);
         // Para no mostrar respuesta html al eliminar un recurso no existente
         // APP_DEBUG=false mostrara por default la respuesta json
         $recipe->delete();

@@ -9,6 +9,7 @@ class AuthServiceProvider extends ServiceProvider
 {
     /**
      * The model to policy mappings for the application.
+     * Al seguirse el estandar NombreEntidadPolicy no se registro aqui
      *
      * @var array<class-string, class-string>
      */

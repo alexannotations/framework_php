@@ -29,9 +29,9 @@ class TagController extends Controller
     /**
      * Display the specified resource.
      *
-        // El metodo por default recibe un id
-        // show(string $id)
-        // $category = Tag::findOrFail($id);
+     *   // El metodo por default recibe un id
+     *   // show(string $id)
+     *   // $category = Tag::findOrFail($id);
      */
     public function show(Tag $tag)
     {
