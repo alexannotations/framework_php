@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Al seguir el estandar NombreEntidadPolicy no se registro la politica en App\Providers\AuthServiceProvider
+ * 
+ */
 namespace App\Policies;
 
 use App\Models\Recipe;

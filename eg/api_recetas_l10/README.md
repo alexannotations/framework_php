@@ -20,11 +20,11 @@ Terminar los CRUD y validación de Tags y Category
 
 
 ## __``` php artisan tinker ```__
-Creación de token Bearer
+Creación de token Bearer para acceso del cliente del API
 ``` php
 $user = App\Models\User::find(5);
-$user->createToken('app');  // 'app' hace referecia al dispositivo de conexión (personal_access_tokens->name)
-// copiamos plainTextToken: para pegarlo en Auth -> Bearer Token del API Client
+$user->createToken('app_desktop');  // 'app' hace referecia al dispositivo de conexión (personal_access_tokens->name)
+// copiamos plainTextToken: para pegarlo en Auth -> Bearer Token del API Client (cartero)
 $user->tokens()->delete();  // elimina los tokens del usuario
 ``` 
 
@@ -42,7 +42,7 @@ $user->tokens()->delete();  // elimina los tokens del usuario
 
 - Enviar en _Headers_ para no recibir una respuesta _html_ el parametro **Accept** e indicar **application/json**.
 
-- Para obtener el token desde el API Client con POST debe dirigirse a [api/login](http://api_recetas_l10.localhost/api/login) y llenar los parametros _email_, _password_ y *device_name* y la cabecera _Accept_ con _application/json_.
+- Para obtener el token desde el API Client con POST debe dirigirse a [api/login](http://api_recetas_l10.localhost/api/login) y llenar los parametros (en el body form-data) _email_, _password_ y *device_name* y la cabecera _Accept_ con _application/json_.
 
 - Para actualizar con cliente API en el cuerpo (Body form-data) con metodo POST de la peticion se agrega el campo **_method** **PUT**. Si se trabaja con Query Parameters se selecciona PUT sin ser necesario agregar el campo **_method**. Los tags en recipe se envian como array [1,2,3].
 

@@ -18,6 +18,7 @@ use App\Http\Controllers\Api\TagController;
 |
 */
 
+/** api/login para crear solicitar un token */
 Route::post('login',[LoginController::class, 'store']);
 
 

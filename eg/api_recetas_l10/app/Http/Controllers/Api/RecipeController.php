@@ -37,8 +37,10 @@ class RecipeController extends Controller
         // }
         $recipe->tags()->attach($tags); // agrega las etiquetas a la receta
 
-        $recipe->image = $request->file('image')->store('recipes', 'public');
-        $recipe->save();
+        if ($request->file('image')) {
+            $recipe->image = $request->file('image')->store('recipes', 'public');
+            $recipe->save();
+        }
 
         return response()->json(new RecipeResource($recipe), Response::HTTP_CREATED);  // HTTP 201
     }
@@ -64,7 +66,7 @@ class RecipeController extends Controller
      */
     public function update(\App\Http\Requests\UpdateRecipeRequest $request, Recipe $recipe)
     {
-        $this->authorize('update', $recipe);
+        $this->authorize('update', $recipe);    // RecipePolicy
         $recipe->update($request->all());
         $tags = json_decode($request->tags);
         if ($tags) {
