@@ -3,7 +3,7 @@
  * El controlador maneja implicitamente el Modelo
  */
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\RecipeResource;

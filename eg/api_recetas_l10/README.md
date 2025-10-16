@@ -78,6 +78,7 @@ Considere que esta configurado sqlite para los test, por lo que la extension deb
 - ``` php artisan make:test CategoryTest ```
 - ``` php artisan make:test TagTest ```
 - ``` php artisan make:test RecipeTest ```
+- ``` php artisan make:controller Api/V2/RecipeController --api ```
 
 
 

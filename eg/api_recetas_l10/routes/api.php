@@ -2,10 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\LoginController;
-use App\Http\Controllers\Api\RecipeController;
-use App\Http\Controllers\Api\TagController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,17 +27,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-Route::middleware('auth:sanctum')->prefix("v1")->group(function () {
-    Route::get('categories',[CategoryController::class, 'index']);
-    Route::get('categories/{category}',[CategoryController::class, 'show']);
-
-    Route::get('recipes', [RecipeController::class, 'index']);
-    Route::post('recipes', [RecipeController::class, 'store']);
-    Route::get('recipes/{recipe}', [RecipeController::class, 'show']);
-    Route::put('recipes/{recipe}', [RecipeController::class, 'update']);
-    Route::delete('recipes/{recipe}', [RecipeController::class, 'destroy']);
-
-    Route::apiResource('tags', TagController::class)->only(['index', 'show']);
+Route::middleware('auth:sanctum')->group(function () {
+    // Versionado de API
+    require __DIR__.'/api_v1.php';
+    require __DIR__.'/api_v2.php';
 });
 
 
