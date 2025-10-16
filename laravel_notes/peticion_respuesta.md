@@ -2,7 +2,7 @@
 
 Filtro de peticiones HTTP en un sistema (capa de lógica adicional de filtrado). Su configuración la podemos encontrar en _./app/Http/kernel.php_
 Para proteger una Ruta o Recurso en el archivo de enrutado se agrega el metodo ```middleware('<nombre route middleware>','<pueden ser varios middleware>')```
-o un controlador en el constructor. PEro no deben usarse al mismo tiempo.
+o un controlador en el constructor. Pero no deben usarse al mismo tiempo.
 
 En laravel 6 en __./app/Http/Kernel.php__ tenemos las rutas middleware de la aplicaciión ``` $routeMiddleware ```
 

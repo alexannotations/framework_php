@@ -31,7 +31,7 @@ Desarrollo bajo TDD
 
 ## Comandos
 
-Ejecutar las pruebas.
+``` php artisan test ``` Ejecutar las pruebas.
 
 
 
@@ -43,23 +43,30 @@ Ejecutar las pruebas.
 
 ## Como se crearon los recursos
 
-``` php artisan make:model Category -mf ```
-``` php artisan make:model Course -mf ```
-``` php artisan make:model Post -mf ```
-``` php artisan make:livewire CourseList ```
-``` php artisan make:controller PageController ```
-``` php artisan make:component course-card ```
+- ``` php artisan make:model Category -mf ```
+- ``` php artisan make:model Course -mf ```
+- ``` php artisan make:model Post -mf ```
+- ``` php artisan make:livewire CourseList ```
+- ``` php artisan make:controller PageController ```
+- ``` php artisan make:component course-card ```
+- ``` php artisan make:controller Api/V1/PostController --api --model=Post ```
+- ``` php artisan make:resource V1/PostResource ```
+- ``` php artisan make:controller Api/V2/PostController --api --model=Post ```
+- ``` php artisan make:resource V2/PostResource ```
+- ``` php artisan make:resource V2/PostCollection ```
+- ``` php artisan make:controller Api/LoginController ```
 
-``` php artisan vendor:publish ``` indicamos el tag _jetstream-views_ aunque como es JetStream 2.x no funcionara al no estar definido publicar estas vistas en esta versión, por lo que se deberian copiar manualmente de _vendor/laravel/jetstream/stubs/livewire/resources/views/auth/_ para livewire.
+- ``` php artisan vendor:publish ``` indicamos el tag _jetstream-views_ aunque como es JetStream 2.x no funcionara al no estar definido publicar estas vistas en esta versión, por lo que se deberian copiar manualmente de _vendor/laravel/jetstream/stubs/livewire/resources/views/auth/_ para livewire.
+- ``` php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider" ``` opcional
 
 
 
 ## Instalación de configuración inicial
 
-``` laravel new laravel-8 --jet ```
+- ``` laravel new laravel-8 --jet ```
 
-``` composer create-project --prefer-dist laravel/laravel cursos_l8 "8.*" ```
-``` composer require laravel/jetstream ```
-``` php artisan jetstream:install livewire ```
-``` composer require laravel/sanctum ```
+- ``` composer create-project --prefer-dist laravel/laravel cursos_l8 "8.*" ```
+- ``` composer require laravel/jetstream ```
+- ``` php artisan jetstream:install livewire ```
+- ``` composer require laravel/sanctum ```
 

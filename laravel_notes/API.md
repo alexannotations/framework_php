@@ -1,4 +1,15 @@
-## HTTP status codes
+# API
+
+__Recurso__ es la informacion estructurada de cualquier registro de la BD {data}
+__Coleccion__ un conjunto de recursos {data, meta, links, type}
+__EndPoint__ es el enlace al cual nos conectamos
+
+
+## Header
+__Accept:application/json__       para API y no recibir la respuesta que se le daria a un navegador
+
+
+## [HTTP status codes](https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status)
 
 - __1XX__ Respuestas Afirmativas
 - __2XX__ Respuestas satisfactorias
@@ -14,16 +25,20 @@
 - __GET__: solicitar recurso (fetch).
 - __HEAD__: traer headers. Es util para comprobar si lo que se envia es correcto y puede ser procesado.
 - __POST__: enviar datos para crear un recurso.
-- __PUT__: actualizar completamente un recurso (editar).
-- __PATCH__: reemplazar parcialmente un recurso (editar).
+- __PUT__: actualizar _completamente_ un recurso (editar).
+- __PATCH__: reemplazar _parcialmente_ un recurso (editar).
 - __DELETE__: eliminar un recurso.
 
 
 
 ## Versionado
 __Media Type (Accept Header)__: Una alternativa o complemento al versionado de URL es utilizar el encabezado Accept para especificar la versión de la API. Esto se considera una forma más "pura" de versionado de REST, pero puede ser más complejo de implementar y no es tan amigable para la exploración directa de la API en el navegador.
+```
+     GET /api/recipes
+     Accept : application/vnd.myapi.v2+json
+```
 
-Solo numeros, fecha como versión, o con algun prefijo como _v_.
+__URL versionado__ Solo numeros, fecha como versión, o con algun prefijo como _v_.
 
 
 
@@ -47,4 +62,6 @@ Los JSON Web Tokens son una tecnología de autenticación y autorización que ut
  - Token como llave: Los JWT actúan como "llaves" que almacenan la información de los permisos y la autenticación.
  - Escalabilidad y robustez: Facilitan la distribución de sistemas, permitiendo que las sesiones de usuario se gestionen más eficientemente.
  - Independencia del backend: Al no depender de una sesión en el backend, los JWT ofrecen flexibilidad y seguridad adicional en la gestión de usuarios.
+
+_Sanctum_ se basa en API tokens y _Passport_ usa OAuth2. La diferencia es el modo de acceso a la información privada.
 

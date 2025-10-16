@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->boolean('free')->default(false);
             $table->timestamps();
             
+            $table->foreignId('user_id')->constrained('users');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
         });
     }
