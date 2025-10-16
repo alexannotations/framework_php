@@ -49,6 +49,11 @@ $user->tokens()->delete();  // elimina los tokens del usuario
 - Para crear un recurso use POST en _Body_ -> _form-data_ con los parametros necesarios.
 
 
+## Test Driven Development
+Considere que esta configurado sqlite para los test, por lo que la extension debe estar habilitada
+- ``` php artisan test ``` ejecutar los test
+- ``` php artisan test --filter update ``` ejecutar los test de update
+- 
 
 
 ## Algunos recursos externos utilizados
@@ -70,6 +75,9 @@ $user->tokens()->delete();  // elimina los tokens del usuario
 - ``` php artisan make:request UpdateRecipeRequest ```
 - ``` php artisan make:controller Api/LoginController ```
 - ``` php artisan make:policy RecipePolicy ```
+- ``` php artisan make:test CategoryTest ```
+- ``` php artisan make:test TagTest ```
+- ``` php artisan make:test RecipeTest ```
 
 
 
